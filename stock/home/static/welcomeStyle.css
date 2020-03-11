@@ -1,0 +1,26 @@
+
+
+.welcome-dark{
+
+  height:1000px;
+  background:#475d62 url(images/letsStart.jpg);
+  background-size:cover;
+  position:relative;
+}
+
+
+.btn-light{
+
+	padding: 40px;
+	font-size: 40px;
+	position:absolute;
+	top:25%;
+  	left:43%;
+
+}
+
+.font-weight-light{
+
+	text-align: center;
+	font-size: 50px;
+}

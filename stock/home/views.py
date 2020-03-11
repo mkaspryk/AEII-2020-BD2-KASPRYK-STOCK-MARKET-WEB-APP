@@ -33,10 +33,22 @@ def register(request):
 			else:
 				messages.info(request,'Password not matching !')
 				return redirect('register')
-			return redirect('/')
+			return redirect('/welcome')
 	else:
 		return render(request, 'registerPanel.html',{})
 
 def login(request):
-	return render(request, 'loginPanel.html',{})
+
+	if request.method == "POST":
+		username = request.POST['username']
+		password = request.POST['password']
+		user = auth.authenticate(username=username,password=password)
+		if user is not None:
+			auth.login(request,user)
+			return redirect('/portfolio')
+		else:
+			messages.info(request,'Wrong email or password')
+			return redirect('login')
+	else:	
+		return render(request, 'loginPanel.html',{})
 

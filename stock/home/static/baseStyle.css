@@ -1,7 +1,7 @@
 
 html,
 body {
-  height: 110%;
+  height: 100%;
 }
 
 #page-content {
@@ -18,7 +18,3 @@ body {
   background: #1e2833;
   background: linear-gradient(to right, #1e2833, #0099ff);
 }
-
-/**/
-
-/**/
