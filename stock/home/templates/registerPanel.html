@@ -4,14 +4,12 @@
 {% block content %}
 
 <div class="login-dark">
-
-    {% for message in messages %}
-    <div class="alert alert-danger" role="alert" style="text-align: center;">
-        <h4> {{message}} </h4>
-    </div>
-    {% endfor %}
-    
         <form action="register" method="post">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert" style="text-align: center;">
+                <h7> {{message}} </h7>
+            </div>
+            {% endfor %}
             {% csrf_token %}
             <h2 class="sr-only">Register Form</h2>
 			<h2>Create Account</h2>
