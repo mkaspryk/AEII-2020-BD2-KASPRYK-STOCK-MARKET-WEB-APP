@@ -4,15 +4,23 @@
 {% block content %}
 
 <div class="login-dark">
-        <form method="post">
+
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert" style="text-align: center;">
+        <h4> {{message}} </h4>
+    </div>
+    {% endfor %}
+    
+        <form action="register" method="post">
+            {% csrf_token %}
             <h2 class="sr-only">Register Form</h2>
 			<h2>Create Account</h2>
-			<br>
-			<div class="form-group"><input class="form-control" type="text" name="firstName" placeholder="First name"></div>
-			<div class="form-group"><input class="form-control" type="text" name="lastName" placeholder="Last name"></div>
+            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
+			<div class="form-group"><input class="form-control" type="text" name="first_name" placeholder="First name"></div>
+			<div class="form-group"><input class="form-control" type="text" name="last_name" placeholder="Last name"></div>
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><input class="form-control" type="password" name="passwordRepeat" placeholder="Repeat password"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password1" placeholder="Password"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password2" placeholder="Confirm password"></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Register</button></div>
 			<a href="{% url 'login' %}" class="forgot">Have an account? Log In</a> 
         </form>

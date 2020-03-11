@@ -56,6 +56,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'stock.wsgi.application'
 
 
@@ -65,13 +66,26 @@ WSGI_APPLICATION = 'stock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vxgxqtxf',
-        'USER': 'vxgxqtxf',
-        'PASSWORD': 'VX34JyRV2_TcReG9KbLT8amWFcpfJIWR',
-        'HOST': 'dumbo.db.elephantsql.com',
+        'NAME': '31177086_stock_web_app',
+        'USER': '31177086_stock_web_app',
+        'PASSWORD': 'mKMlNg__ag',
+        'HOST': 'serwer1990534.home.pl',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'vxgxqtxf',
+#         'USER': 'vxgxqtxf',
+#         'PASSWORD': 'VX34JyRV2_TcReG9KbLT8amWFcpfJIWR',
+#         'HOST': 'dumbo.db.elephantsql.com',
+#         'PORT': '5432',
+#     }
+# }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
