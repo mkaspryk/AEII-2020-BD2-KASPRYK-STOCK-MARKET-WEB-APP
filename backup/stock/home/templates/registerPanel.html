@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-dark">
+        <form method="post">
+            <h2 class="sr-only">Register Form</h2>
+			<h2>Create Account</h2>
+			<br>
+			<div class="form-group"><input class="form-control" type="text" name="firstName" placeholder="First name"></div>
+			<div class="form-group"><input class="form-control" type="text" name="lastName" placeholder="Last name"></div>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div class="form-group"><input class="form-control" type="password" name="passwordRepeat" placeholder="Repeat password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Register</button></div>
+			<a href="{% url 'login' %}" class="forgot">Have an account? Log In</a> 
+        </form>
+</div>
+
+{% endblock %}
