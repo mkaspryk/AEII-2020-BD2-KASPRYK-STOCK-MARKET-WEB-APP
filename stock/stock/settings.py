@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'portfolio',
+    'crypto_stock',
 ]
 
 MIDDLEWARE = [
