@@ -1,6 +1,4 @@
 # stock-market-web-app
-Database project
-
 Symulator gry na giełdzie.
 
 Program umożliwia inwestowanie wirtualnych pieniędzy i analizowanie zysków/strat w oparciu o faktyczne kursy giełdowe.
