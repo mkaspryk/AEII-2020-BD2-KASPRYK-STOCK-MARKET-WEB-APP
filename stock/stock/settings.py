@@ -122,4 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('stock/home/static',)
+STATICFILES_DIRS = ('stock/home/static','stock/portfolio/static',)
+
