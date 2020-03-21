@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+import time
 
 def index(request):
 	return render(request, 'index.html', {})
@@ -30,9 +31,12 @@ def register(request):
 				else:
 					user = User.objects.create_user(username=username, password=password1, email=email,first_name=first_name,last_name=last_name)
 					user.save()
+
 			else:
 				messages.info(request,'Password not matching !')
 				return redirect('register')
+			user = auth.authenticate(username=username,password=password1)	
+			auth.login(request,user)
 			return redirect('/welcome')
 	else:
 		return render(request, 'registerPanel.html',{})
@@ -52,3 +56,6 @@ def login(request):
 	else:	
 		return render(request, 'loginPanel.html',{})
 
+def logout(request):
+	auth.logout(request)
+	return redirect('/')
