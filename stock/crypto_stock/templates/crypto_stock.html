@@ -3,5 +3,17 @@
 
 {% block content %}
 
-
+<br/>
+<br/>
+<br/>
+<font color="white">
+  {% if daily_history_data %}
+    {% for dict in daily_history_data %}
+      {% for key, value in dict.items %}
+        {{ key }}: {{ value }}<br/>
+      {% endfor %}
+      <br/>
+    {% endfor %}
+  {% endif %}
+</font>
 {% endblock %}
