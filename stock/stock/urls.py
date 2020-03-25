@@ -7,5 +7,5 @@ urlpatterns = [
     path('',include('home.urls')),
     path('',include('portfolio.urls')),
     path('',include('crypto_stock.urls')),
-    # path('django_plotly_dash/', include('django_plotly_dash.urls')),
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
 ]

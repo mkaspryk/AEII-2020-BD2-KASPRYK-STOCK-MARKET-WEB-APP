@@ -27,19 +27,36 @@ INSTALLED_APPS = [
     'home',
     'portfolio',
     'crypto_stock',
-    # 'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-    # 'channels',
-    # 'channels_redis',
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    'channels',
+    'channels_redis',
 ]
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             'hosts': [('127.0.0.1', 6379),],
-#         },
-#     },
-# }
+
+CHANNEL_LAYERS = {
+    'DEFAULT': {
+        'BACKEND': 'CHANNELS_REDIS.CORE.REDISCHANNELLAYER',
+        'CONFIG': {
+            'HOSTS': [('127.0.0.1', 6379),],
+        },
+    },
+}
+
+STATICFILES_FINDERS = {
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django_plotly_dash.finders.DashAssetFinder',
+    'django_plotly_dash.finders.DashComponentFinder'
+}
+
+PLOTLY_COMPONENTS = {
+
+    'dash_core_components',
+    'dash_html_components',
+    'dash_renderer',
+
+    'dpd_components',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,6 +146,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+ASGI_APPLICATION = 'stock.routing.application'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
