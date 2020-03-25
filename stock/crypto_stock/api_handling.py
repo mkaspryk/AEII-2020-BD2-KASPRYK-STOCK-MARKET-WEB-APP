@@ -28,6 +28,5 @@ class ApiHandler:
     def get_hourly_history(self,crypto_symbol,currency_symbol,data_limit='10'):
         return self.get_history(crypto_symbol,currency_symbol,self.hourly_historical_data_url,data_limit)
 
-
     def get_minute_history(self,crypto_symbol,currency_symbol,data_limit='10'):
         return self.get_history(crypto_symbol,currency_symbol,self.minute_historical_data_url,data_limit)

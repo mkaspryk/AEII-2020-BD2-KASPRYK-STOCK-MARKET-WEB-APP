@@ -27,7 +27,19 @@ INSTALLED_APPS = [
     'home',
     'portfolio',
     'crypto_stock',
+    # 'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    # 'channels',
+    # 'channels_redis',
 ]
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             'hosts': [('127.0.0.1', 6379),],
+#         },
+#     },
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,6 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'stock.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -123,4 +136,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = ('stock/home/static','stock/portfolio/static',)
-
