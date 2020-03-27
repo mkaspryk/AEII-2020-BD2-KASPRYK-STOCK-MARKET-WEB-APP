@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/baseStyle.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/loginStyle.css" /> 
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/loginStyle.css" />
     <title>Stock Masters</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
 
   <body class="d-flex flex-column">
@@ -20,7 +21,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       </div>
       {% if user.is_authenticated %}
         <form class="form-inline my-2 my-lg-0">
@@ -43,7 +44,7 @@
         </form>
       {% endif %}
     </nav>
-    
+
     {% block content %}
 
     {% endblock %}

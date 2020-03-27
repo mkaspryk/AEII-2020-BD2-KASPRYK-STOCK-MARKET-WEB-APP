@@ -1,19 +1,22 @@
 
 {% extends 'base.html' %}
-
 {% block content %}
-
-<br/>
-<br/>
-<br/>
-<font color="white">
-  {% if daily_history_data %}
-    {% for dict in daily_history_data %}
-      {% for key, value in dict.items %}
-        {{ key }}: {{ value }}<br/>
+  {% load plotly_dash %}
+  <br/>
+  <br/>
+  <br/>
+  <font color="white">
+    {% if daily_history_data %}
+      {% for dict in daily_history_data %}
+        {% for key, value in dict.items %}
+          {{ key }}: {{ value }}<br/>
+        {% endfor %}
+        <br/>
       {% endfor %}
-      <br/>
-    {% endfor %}
-  {% endif %}
-</font>
+    {% endif %}
+  </font>
+  <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
+    {% plotly_app name='SimpleExample' ratio=0.45 %}
+    </div>
+
 {% endblock %}
