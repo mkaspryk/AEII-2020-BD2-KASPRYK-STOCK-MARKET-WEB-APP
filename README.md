@@ -41,17 +41,11 @@ Zarządzanie bazą danych pgAdmin 4 dla Windows OS
 5. W panelu Create-Server należy przejść do Connection
 
 Należy uzupełnić następujące pola:
-
-Host name/address: serwer1990534.home.pl
-
-Port: 5432
-
-Maintenance database: 31177086_stock_web_app
-
-Username: 31177086_stock_web_app
-
-Password: mKMlNg__ag
-
+ - Host name/address: serwer1990534.home.pl
+ - Port: 5432
+ - Maintenance database: 31177086_stock_web_app
+ - Username: 31177086_stock_web_app
+ - Password: mKMlNg__ag
 6. Save (powinno się utworzyć połączenie)
 7. Po lewej stronie powinna znajdować się ikonka z nowym serwerem
 
