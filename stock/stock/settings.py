@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'channels_redis',
 ]
 
+<<<<<<< HEAD
 
 CHANNEL_LAYERS = {
     'DEFAULT': {
@@ -58,6 +59,11 @@ PLOTLY_COMPONENTS = {
     'dpd_components',
 }
 
+||||||| merged common ancestors
+=======
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+>>>>>>> 5ec9244f73c96650adb86e3a9877bff86a6d8f2e
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
