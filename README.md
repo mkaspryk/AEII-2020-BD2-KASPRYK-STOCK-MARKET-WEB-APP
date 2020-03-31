@@ -27,7 +27,7 @@ Instrukcja uruchomienia projektu dla Windows OS
  - docker pull redis:4
  - docker run -p 6379:6379 -d redis
 13. W folderze stock znajduje się plik manage.py(zawiera całą konfigurację) jest potrzebny do uruchomienia serwera.
-14. Za pomocą pliku manage.py dokonanie migracji bazy danych i dodatkowych aplikacji z projektu "python ./manage.py migrate"
+14. Za pomocą pliku manage.py można dokonać migracji bazy danych i dodatkowych aplikacji z projektu "python ./manage.py migrate"
 15. Uruchomienie serwera "python manage.py runserver"
 16. Podgląd strony po linkiem "http://localhost:8000/"
 
