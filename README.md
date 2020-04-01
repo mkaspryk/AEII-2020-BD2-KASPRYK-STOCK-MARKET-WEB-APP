@@ -19,7 +19,7 @@ Instrukcja uruchomienia projektu dla Windows OS
 5. Uruchomienie wirtualnego środowiska "source venv/Scripts/activate"
 6. Instalacja frameworku Django "pip install Django"
 7. Instalacja postgresql "pip install psycopg2"
-8. Instalacja pakietu do api "pip install reports"
+8. Instalacja pakietu do api "pip install requests"
 9. Instalacja pakietu do wykresów webowych "pip install django_plotly_dash"
 10. Instalacja pakietu do uaktualniania wykresów w trybie live "pip install channels daphne redis django-redis channels-redis"
 11. Instalacja Docker desktop dla Windows. Po instalacja program Docker automatycznie dodaje sie do patha naszego systemu.
