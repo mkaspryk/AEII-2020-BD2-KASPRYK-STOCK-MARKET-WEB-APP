@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
     'channels_redis',
+    'userArea',
+    'adminArea',
 ]
 
 
@@ -50,11 +52,9 @@ STATICFILES_FINDERS = {
 }
 
 PLOTLY_COMPONENTS = {
-
     'dash_core_components',
     'dash_html_components',
     'dash_renderer',
-
     'dpd_components',
 }
 
@@ -90,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stock.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -104,17 +103,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'vxgxqtxf',
-#         'USER': 'vxgxqtxf',
-#         'PASSWORD': 'VX34JyRV2_TcReG9KbLT8amWFcpfJIWR',
-#         'HOST': 'dumbo.db.elephantsql.com',
-#         'PORT': '5432',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -157,4 +145,4 @@ ASGI_APPLICATION = 'stock.routing.application'
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('stock/home/static','stock/portfolio/static',)
+STATICFILES_DIRS = ('stock/home/static','stock/portfolio/static','stock/userArea/static','stock/adminArea/static',)
