@@ -1,0 +1,15 @@
+
+
+.user-dark{
+
+  height:1000px;
+  background:#475d62 url(images/portfolioBackground.jpg);
+  background-size:cover;
+  position:relative;
+}
+
+.font-weight-light{
+
+	text-align: center;
+	font-size: 50px;
+}
