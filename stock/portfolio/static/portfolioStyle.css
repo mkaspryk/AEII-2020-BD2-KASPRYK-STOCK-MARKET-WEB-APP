@@ -8,6 +8,22 @@
   position:relative;
 }
 
+.portfolio-sidebar-dark-title{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.portfolio-sidebar-dark{
+    background: #1e2833;
+    color: #eeeeee;
+}
+
+.portfolio-sidebar-dark-item{
+    background: #303030;
+    color: #eeeeee;
+}
+
 .font-weight-light{
 
 	text-align: center;

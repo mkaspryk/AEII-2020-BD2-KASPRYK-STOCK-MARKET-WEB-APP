@@ -3,11 +3,30 @@
 
 {% block content %}
 
-
-<div class="portfolio-dark">
-	<h1 class="font-weight-light mt-4 text-white"> Welcome back {{user.username}} </h1>
-    <h1 class="font-weight-light mt-4 text-white"> Portfolio here to implement </h1>    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 portfolio-sidebar-dark list-group list-group-flush">
+            <h1 class="portfolio-sidebar-dark-title card-title">{{user.username}}</h1>
+            <ul>
+                <il><a href="{% url 'profile' %}" class=" btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My profile</a></il>
+                <il><a href="{% url 'stock' %}" class="btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My stocks</a></il>
+                <il><a href="{% url 'clan' %}" class=" btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My clan</a></il>
+            </ul>
+        </div>
+        
+        <div class="col-lg portfolio-dark">
+        
+            {%block content_portfolio%}
+            {%endblock%}
+        </div>
+    </div>
 
 </div>
+
+
+
+
+
+
 
 {% endblock %}
