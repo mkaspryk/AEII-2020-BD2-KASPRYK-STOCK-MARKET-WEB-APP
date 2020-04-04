@@ -16,4 +16,4 @@ def clan(request):
     return render(request, 'clan.html',{})
 
 def stock(request):
-    return render(request, 'stocks.html',{})
+    return render(request, 'stocks.html',{"growValue" : 54})
