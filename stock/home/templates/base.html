@@ -50,10 +50,26 @@
       {% endif %}
     </nav>
 
-    {% block content %}
-
-    {% endblock %}
-
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
+                    <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
+                    <ul>
+                        <il><a href="{% url 'profile' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My profile</a></il>
+                        <il><a href="{% url 'stock' %}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">My stocks</a></il>
+                        <il><a href="{% url 'clan' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My clan</a></il>
+                    </ul>
+                </div>
+                
+                <div class="col-lg portfolio-dark">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    
+    
+    
     <footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
     <div class="container text-center">
       <small>Copyright &copy; StockMasters.com</small>
