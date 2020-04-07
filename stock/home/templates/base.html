@@ -54,9 +54,10 @@
                 <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
                     <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
                     <ul>
-                        <il><a href="{% url 'profile' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My profile</a></il>
-                        <il><a href="{% url 'stock' %}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">My stocks</a></il>
-                        <il><a href="{% url 'clan' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My clan</a></il>
+                        <il><a href="{% url 'index' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item active" role="button">Home</a></il>
+                        <il><a href="{% url 'portfolio' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My portfolio</a></il>
+                        <il><a href="{% url 'crypto_stock'%}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">crypto_stock</a></il>
+                        <il><a href="#" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Implement</a></il>
                     </ul>
                 </div>
                 
