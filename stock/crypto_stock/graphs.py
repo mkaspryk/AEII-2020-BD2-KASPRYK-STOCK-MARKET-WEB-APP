@@ -16,7 +16,7 @@ y_data_box_high = []
 def return_app(crypto_symbol = None):
     data = None
     api_handler = api_handling.ApiHandler()
-    if(crypto_symbol is None):
+    if(crypto_symbol == '' or crypto_symbol is None):
         data = api_handler.get_hourly_history('BTC', 'USD', 200)
     else:
         data = api_handler.get_hourly_history(crypto_symbol, 'USD', 200)
