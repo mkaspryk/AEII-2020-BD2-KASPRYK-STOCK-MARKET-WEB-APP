@@ -2,21 +2,19 @@
 {% extends 'base.html' %}
 {% block content %}
   {% load plotly_dash %}
-  <br/>
-  <br/>
-  <br/>
+
   <font color="white">
-    {% if daily_history_data %}
+    <!-- {% if daily_history_data %}
       {% for dict in daily_history_data %}
         {% for key, value in dict.items %}
           {{ key }}: {{ value }}<br/>
         {% endfor %}
         <br/>
       {% endfor %}
-    {% endif %}
+    {% endif %} -->
   </font>
-  <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
-    {% plotly_app name='SimpleExample' ratio=0.45 %}
-    </div>
+  <div class="{% plotly_class name='SimpleExample' %} card" style="background-color:#27293d" ratio="1" padding="20px">
+    {% plotly_app name='SimpleExample' ratio=0.6 %}
+  </div>
 
 {% endblock %}
