@@ -2,6 +2,24 @@
 {% extends 'base.html' %}
 {% block content %}
   {% load plotly_dash %}
+  <style>
+    {
+        box-sizing: border-box;
+    }
+    /* Set additional styling options for the columns*/
+    .column {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+
+    }
+    </style>
 
   <font color="white">
     <!-- {% if daily_history_data %}
@@ -13,8 +31,25 @@
       {% endfor %}
     {% endif %} -->
   </font>
-  <div class="{% plotly_class name='SimpleExample' %} card" style="background-color:#27293d" ratio="1" padding="20px">
+  <div class="{% plotly_class name='SimpleExample' %} card" style="background-color: rgba(255,255,255,0); padding-top:20px" ratio="1">
     {% plotly_app name='SimpleExample' ratio=0.6 %}
   </div>
+  <div class="row" align="center">
+        <div class="column" align="center">
+          <form class="form-inline" method="GET">
+              {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="USD.." aria-label="Search" name='crypto_buy'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color: #4CAF50">BUY</button>
+          </form>
+        </div>
+        <div class="column" align="center">
+          <form class="form-inline" method="GET">
+              {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Crypto.." aria-label="Search" name='crypto_sell'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color:#f44336">SELL</button>
+          </form>
+        </div>
+    </div>
+
 
 {% endblock %}

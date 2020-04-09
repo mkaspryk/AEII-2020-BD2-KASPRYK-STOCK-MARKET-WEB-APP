@@ -3,7 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 from django_plotly_dash import DjangoDash
-from . import api_handling, plotting
+from . import api_handling
 from datetime import datetime
 
 x_data = []
@@ -20,7 +20,8 @@ colors = {
     'text': '#ffffff'
 }
 
-history_precision = ['minute','hour','day']
+history_precision = ['minute', 'hour', 'day']
+
 
 def refresh_data(crypto_symbol, history_precision):
 
@@ -51,7 +52,7 @@ def refresh_data(crypto_symbol, history_precision):
         y_data_scatter.append(dictionary['open'])
 
 
-def return_app(crypto_symbol = None):
+def return_app(crypto_symbol=None):
     global app
     if(crypto_symbol == '' or crypto_symbol is None):
         crypto_symbol = 'BTC'
@@ -60,13 +61,13 @@ def return_app(crypto_symbol = None):
     app = DjangoDash('SimpleExample', external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
-        html.H1(children=crypto_symbol +' history',
+        html.H1(children=crypto_symbol + ' history',
                 style={
                     'padding': '20px',
                     'textAlign': 'left',
                     'color': colors['text']
                 }
-        ),
+                ),
 
         dcc.Graph(
             id='slider-graph',
@@ -88,7 +89,7 @@ def return_app(crypto_symbol = None):
             id='mode-radio',
             options=[{'label': value, 'value': value} for value in history_precision],
             value='hour',
-            style={"color" : colors['text'], "padding" : "20px"}
+            style={"color": colors['text'], "padding": "20px"}
         ),
     ])
 
@@ -107,11 +108,11 @@ def return_app(crypto_symbol = None):
         ))
 
         graphs.append(go.Ohlc(
-            x = x_data,
-            open = y_data_box_open,
-            high = y_data_box_high,
-            low = y_data_box_low,
-            close = y_data_box_close
+            x=x_data,
+            open=y_data_box_open,
+            high=y_data_box_high,
+            low=y_data_box_low,
+            close=y_data_box_close
         ))
 
         layout = go.Layout(
