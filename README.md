@@ -10,9 +10,10 @@ Użytkownik rozpoczyna z zerowym poziomem i może zdobywać doświadczenie za ud
 
 Uruchomienie projektu na Linux OS
 ------------------
-1. Upewnij się, że masz zainstalowego Pythona 3 (testowane na wersji 3.8)
+1. Upewnij się, że masz zainstalowego Pythona 3
 2. Pobierz projekt: `git clone https://github.com/mkaspryk/AEII-2020-BD2-KASPRYK-STOCK-MARKET-WEB-APP.git`
-3. Uruchom skrypt, który znajdziesz w głównym folderze: `./deploy_linux.sh`
+3. Uruchom skrypt, który znajdziesz w głównym folderze: `./installserver_linux.sh`
+4. Aby włączyć serwer, wystarczy użyć komendy: `./runserver_linux.sh`
 
 Instrukcja uruchomienia projektu dla Windows OS
 ------------------
