@@ -10,6 +10,7 @@ Użytkownik rozpoczyna z zerowym poziomem i może zdobywać doświadczenie za ud
 
 Uruchomienie na Linux OS
 ------------------
+
 1. Upewnij się, że Python 3 jest zainstalowany
 2. Pobierz projekt: `git clone https://github.com/mkaspryk/AEII-2020-BD2-KASPRYK-STOCK-MARKET-WEB-APP.git`
 3. Uruchom skrypt, który znajdziesz w głównym folderze: `./installserver_linux.sh`
@@ -19,6 +20,7 @@ Uruchomienie na Linux OS
 Uruchomienie na Windows OS
 ------------------
 UWAGA! Zainstalowanie Dockera, koniecznego do uruchomienia serwera, możliwe jest tylko na wersjach Enterprise i Professional Windowsa 10.
+
 0. Zainstaluj Docker Desktop for Windows: `https://hub.docker.com/editions/community/docker-ce-desktop-windows/`
 1. Upewnij się, że Python 3 jest zainstalowany (i dodany do PATH) na Twoim komputerze
 2. Pobierz projekt: `git clone https://github.com/mkaspryk/AEII-2020-BD2-KASPRYK-STOCK-MARKET-WEB-APP.git`
@@ -30,6 +32,7 @@ UWAGA! Zainstalowanie Dockera, koniecznego do uruchomienia serwera, możliwe jes
 
 Zarządzanie bazą danych pgAdmin 4 dla Windows OS
 -----------------
+
 1. Instalacja pgAdmin4 https://www.pgadmin.org/download/pgadmin-4-windows/
 2. Uruchomienie pgAdmin4
 3. Prawym klawiszem klikamy na nazwę Servers następnie Create -> Server..
