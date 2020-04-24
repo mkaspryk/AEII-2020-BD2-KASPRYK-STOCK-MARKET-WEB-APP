@@ -48,8 +48,12 @@ def login(request):
 		password = request.POST['password']
 		user = auth.authenticate(username=username,password=password)
 		if user is not None:
-			auth.login(request,user)
-			return redirect('/portfolio')
+			if user is_active:
+				auth.login(request,user)
+				return redirect('/portfolio')
+			else:
+				messages.info(request,'Your account is no longer active')
+				return redirect('login')
 		else:
 			messages.info(request,'Wrong email or password')
 			return redirect('login')
@@ -62,3 +66,13 @@ def logout(request):
 
 def resetPassword(request):
 	return render(request, 'resetPassword.html', {})
+
+def set_admin(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        user = User.objects.get(username=username)
+        user.is_superuser = True
+        user.save()
+        return render(request, 'adminView.html',{})
+    else:
+        return render(request, 'adminView.html',{})
