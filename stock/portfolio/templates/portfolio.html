@@ -1,32 +1,40 @@
 
 {% extends 'basePlatform.html' %}
 
-{% block content %}
+{% block content_ %}
+<!--<h1 class="font-weight-light mt-4 text-white"> Welcome back {{user.username}} </h1>
+<h1 class="font-weight-light mt-4 text-white"> Your stocks here to implement </h1>    -->
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 portfolio-sidebar-dark list-group list-group-flush">
-            <h1 class="portfolio-sidebar-dark-title card-title">{{user.username}}</h1>
-            <ul>
-                <il><a href="{% url 'profile' %}" class=" btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My profile</a></il>
-                <il><a href="{% url 'stock' %}" class="btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My stocks</a></il>
-                <il><a href="{% url 'clan' %}" class=" btn btn-dark portfolio-sidebar-dark-item list-group-item" role="button">My clan</a></il>
-            </ul>
-        </div>
-        
-        <div class="col-lg portfolio-dark">
-        
-            {%block content_portfolio%}
-            {%endblock%}
-        </div>
-    </div>
-
+<div class="portfolio-stocks-panel-dark card-body" style="margin-top: 10px;">
+    <h1 class = "portfolio-stocks-balance-title-dark card-title">Your balance: </h1>
+    <h2 id = "growValue" class="card-text mx-auto portfolio-stocks-balance-text-dark" style="width: 200px; padding-top: 50px;">{{growValue}}</h2>
+    
+    <script>
+        if({{growValue}}<0)
+            document.getElementById("growValue").style.color = "#FF0000";
+        else if({{growValue}} >0)
+            document.getElementById("growValue").style.color = "#00FF00";
+        else
+            document.getElementById("growValue").style.color = "#FFFFFF";
+    </script>
 </div>
 
+<div class="portfolio-stocks-panel-dark card-body">
+    <h1 class="portfolio-stocks-balance-title-dark  card-title"> Your stocks: </h1>
+    <ul class="list-group">
+        <li class="list-group-item portfolio-stocks-list-item-dark">
+            <div class = "row">
+                <div class="col-sm-2"> Company_name </div>
+                <div class="col-sm-2"> growValue </div>
+                <div class= col-sm-2 >
+                    <button class="btn btn-secondary">
+                        Sell
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
 
-
-
-
-
+</div>
 
 {% endblock %}

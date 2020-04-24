@@ -24,6 +24,25 @@
     color: #eeeeee;
 }
 
+
+
+.portfolio-stocks-panel-dark{
+    background: rgba(30, 40, 51, 0.8);
+}
+
+.portfolio-stocks-balance-text-dark{
+    font-size: 100px;
+}
+
+.portfolio-stocks-balance-title-dark{
+    color: #FFFFFF;
+}
+
+.portfolio-stocks-list-item-dark{
+    color: #FFFFFF;
+    background: #303030;
+}
+
 .font-weight-light{
 
 	text-align: center;

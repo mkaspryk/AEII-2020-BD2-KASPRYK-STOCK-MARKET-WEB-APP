@@ -13,6 +13,22 @@ body {
   flex-shrink: none;
 }
 
+.base-sidebar-dark-title{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.base-sidebar-dark{
+    background: #1e2833;
+    color: #eeeeee;
+}
+
+.base-sidebar-dark-item{
+    background: #303030;
+    color: #eeeeee;
+}
+
 /* Other Classes for Page Styling */
 
 body {

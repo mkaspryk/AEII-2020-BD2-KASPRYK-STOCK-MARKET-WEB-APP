@@ -23,6 +23,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       </div>
+      <form class="form-inline" method="POST" action="{% url 'crypto_stock' %}">
+          {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="BTC.." aria-label="Search" name='crypto_search'>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
       {% if user.is_authenticated %}
         <form class="form-inline my-2 my-lg-0">
           <ul class="navbar-nav mr-auto">
@@ -45,10 +50,27 @@
       {% endif %}
     </nav>
 
-    {% block content %}
-
-    {% endblock %}
-
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
+                    <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
+                    <ul>
+                        <il><a href="{% url 'index' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item active" role="button">Home</a></il>
+                        <il><a href="{% url 'portfolio' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My portfolio</a></il>
+                        <il><a href="{% url 'crypto_stock'%}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">crypto_stock</a></il>
+                        <il><a href="#" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Implement</a></il>
+                    </ul>
+                </div>
+                
+                <div class="col-lg portfolio-dark">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    
+    
+    
     <footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
     <div class="container text-center">
       <small>Copyright &copy; StockMasters.com</small>

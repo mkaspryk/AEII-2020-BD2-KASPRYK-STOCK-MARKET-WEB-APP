@@ -35,11 +35,28 @@
       </form>
     </nav>
 
-    {% block content %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
+                    <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
+                    <ul>
+                      <il><a href="{% url 'index' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Home</a></il>
+                        <il><a href="{% url 'portfolio' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item active" role="button">My portfolio</a></il>
+                        <il><a href="{% url 'crypto_stock'%}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">crypto_stock</a></il>
+                        <il><a href="#" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Implement</a></il>
+                    </ul>
+                </div>
+                
+                <div class="col-lg portfolio-dark">
+                    {% block content_ %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     
-    {% endblock %}
 
     {% else %}
+    
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e2833;">
         <a class="navbar-brand" href="{% url 'index' %}">Stock Masters</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,13 +76,6 @@
         </form>
       </nav>
 
-      <div class="error-dark">
-        
-        <h1 class="font-weight-light mt-4 text-white"> Authorization Error </h1>
-
-      </div>
-
-      
     {% endif %}  
     
     <footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
