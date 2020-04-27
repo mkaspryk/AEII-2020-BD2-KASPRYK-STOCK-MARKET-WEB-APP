@@ -48,7 +48,7 @@ def login(request):
 		password = request.POST['password']
 		user = auth.authenticate(username=username,password=password)
 		if user is not None:
-			if user is_active:
+			if user.is_active:
 				auth.login(request,user)
 				return redirect('/portfolio')
 			else:
@@ -73,6 +73,36 @@ def set_admin(request):
         user = User.objects.get(username=username)
         user.is_superuser = True
         user.save()
-        return render(request, 'adminView.html',{})
+        return render(request, 'set_admin.html',{})
     else:
-        return render(request, 'adminView.html',{})
+        return render(request, 'set_admin.html',{})
+
+def remove_admin(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        user = User.objects.get(username=username)
+        user.is_superuser = False
+        user.save()
+        return render(request, 'remove_admin.html',{})
+    else:
+        return render(request, 'remove_admin.html',{})
+
+def ban_hammer(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        user = User.objects.get(username=username)
+        user.is_active = False
+        user.save()
+        return render(request, 'ban_hammer.html',{})
+    else:
+        return render(request, 'ban_hammer.html',{})
+
+def unban(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        user = User.objects.get(username=username)
+        user.is_active = True
+        user.save()
+        return render(request, 'unban.html',{})
+    else:
+        return render(request, 'unban.html',{})
