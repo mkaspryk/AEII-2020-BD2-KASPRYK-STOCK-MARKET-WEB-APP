@@ -13,6 +13,22 @@ body {
   flex-shrink: none;
 }
 
+#main_logo{
+    color:#303090;
+
+    font-weight: bold;
+}
+
+#logout_button{
+    color:#903333;
+    font-weight: bold;
+}
+
+#login_button{
+    color:#399033;
+    font-weight: bold;
+}
+
 .base-sidebar-dark-title{
     text-align: center;
     padding-bottom: 10px;
@@ -35,3 +51,4 @@ body {
   background: #1e2833;
   background: linear-gradient(to right, #1e2833, #0099ff);
 }
+

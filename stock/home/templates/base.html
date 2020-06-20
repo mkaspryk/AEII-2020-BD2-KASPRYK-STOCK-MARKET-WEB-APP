@@ -1,88 +1,105 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+    <title>Stock Masters</title>
+    {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/baseStyle.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/loginStyle.css" />
-    <title>Stock Masters</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'baseStyle.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static "autocomplete.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "logout_popup.css" %}" />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  </head>
-
-  <body class="d-flex flex-column">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e2833;">
-      <a class="navbar-brand" href="{% url 'index' %}">Stock Masters</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      </div>
-      <form class="form-inline" method="POST" action="{% url 'crypto_stock' %}">
-          {% csrf_token %}
-        <input class="form-control mr-sm-2" type="search" placeholder="BTC.." aria-label="Search" name='crypto_search'>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      {% if user.is_authenticated %}
-        <form class="form-inline my-2 my-lg-0">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'logout' %}"> Log out <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-        </form>
-      {% else %}
-        <form class="form-inline my-2 my-lg-0">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'register' %}"> Register <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'login' %}"> Log in <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-        </form>
-      {% endif %}
-    </nav>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
-                    <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
-                    <ul>
-                        <il><a href="{% url 'index' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item active" role="button">Home</a></il>
-                        <il><a href="{% url 'portfolio' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My portfolio</a></il>
-                        <il><a href="{% url 'crypto_stock'%}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">crypto_stock</a></il>
-                        <il><a href="#" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Implement</a></il>
-                    </ul>
-                </div>
-                
-                <div class="col-lg portfolio-dark">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
-    
-    
-    
-    <footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
-    <div class="container text-center">
-      <small>Copyright &copy; StockMasters.com</small>
-    </div>
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.24.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0-alpha/dist/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.2.1"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-sm form-inline">
+        <a id="main_logo" class="navbar-brand my-sm-1" href="{% url 'index' %}" style="font-size:x-large">Stock Masters</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'crypto_stock'%}">Crypto</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm form-inline">
+        <!-- change to POST -->
+        <form class="form-inline mx-auto" method="GET" autocomplete="off" action="{% url 'crypto_stock' %}">
+            {% csrf_token %}
+            <div class="autocomplete">
+                <input id="crypto_input" type="search" name="selected_crypto" placeholder="&#x1F50E; Search for BTC, Ethereum, ..." style="width:400px;">
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm form-inline">
+        <div class="ml-auto">
+            {% if user.is_authenticated %}
+                <form class="form-inline">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'portfolio' %}"> <i class='far'>&#xf007;</i> {{user.username}} </a></li>
+                        <li class="nav-item active">
+                            <a class="nav-link" id="logout_button" href="{% url 'logout' %}"> Log out </a>
+                        </li>
+                    </ul>
+                </form>
+            {% else %}
+                <form class="form-inline">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" id="login_button" href="{% url 'login' %}"> Log in <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'register' %}"> Register <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 base-sidebar-dark list-group list-group-flush">
+            <h1 class="base-sidebar-dark-title card-title">{{user.username}}</h1>
+            <ul>
+                <il><a href="{% url 'index' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item active" role="button">Home</a></il>
+                <il><a href="{% url 'portfolio' %}" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">My portfolio</a></il>
+                <il><a href="{% url 'crypto_stock'%}" class="btn btn-dark base-sidebar-dark-item list-group-item" role="button">crypto_stock</a></il>
+                <il><a href="#" class=" btn btn-dark base-sidebar-dark-item list-group-item" role="button">Implement</a></il>
+            </ul>
+        </div>
+        <div class="col-lg portfolio-dark">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
+    <div class="container text-center">
+        <small>Copyright &copy; StockMasters.com</small>
+    </div>
+</footer>
+</body>
+<script type="text/javascript" src="{% static 'autocomplete.js' %}"></script>
+<script type="text/javascript" src="{% static "logout_popup.js" %}"></script>
+<script>logout_popup_handling()</script>
 </html>
