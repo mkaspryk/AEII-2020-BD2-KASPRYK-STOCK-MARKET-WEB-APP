@@ -1,6 +1,6 @@
  var countries = [
      "Bitcoin", "BTC",
-     "Ethereum", "EHT",
+     "Ethereum", "ETH",
      "Ripple", "XRP",
      "Litecoin", "LTC",
      "Tether", "USDT",

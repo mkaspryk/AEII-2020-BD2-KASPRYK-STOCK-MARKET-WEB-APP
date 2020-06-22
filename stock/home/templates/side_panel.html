@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block side_panel %}
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 base-sidebar-dark">
+            <div class="container">BTC: <span id="btc_price">12.50</span></div>
+            <div class="container">EHT: <span id="eth_price">12.50</span></div>
+            <div class="container">XRP: <span id="xrp_price">12.50</span></div>
+            <div class="container">LTC: <span id="ltc_price">12.50</span></div>
+            <div class="container">USDT: <span id="usdt_price">12.50</span></div>
+            <div class="container">LIBRA: <span id="libra_price">12.50</span></div>
+            <div class="container">XMR: <span id="xmr_price">12.50</span></div>
+            <div class="container">EOS: <span id="eos_price">12.50</span></div>
+            <div class="container">BNB: <span id="bnb_price">12.50</span></div>
+            <script type="text/javascript" src="{% static 'current_prices.js' %}"></script>
+        </div>
+        <div class="col-lg portfolio-dark">
+            {% block content %}
+                Error loading content.
+            {% endblock content %}
+        </div>
+    </div>
+</div>
+{% endblock %}

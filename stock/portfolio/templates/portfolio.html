@@ -1,7 +1,7 @@
 
-{% extends 'basePlatform.html' %}
+{% extends 'base.html' %}
 
-{% block content_ %}
+{% block content %}
 <!--<h1 class="font-weight-light mt-4 text-white"> Welcome back {{user.username}} </h1>
 <h1 class="font-weight-light mt-4 text-white"> Your stocks here to implement </h1>    -->
 
@@ -9,8 +9,8 @@
     <h1 class = "portfolio-stocks-balance-title-dark card-title">Your balance: </h1>
     <h2 id = "growValue" class="card-text mx-auto portfolio-stocks-balance-text-dark" style="width: 200px; padding-top: 50px;">{{growValue}}</h2>
     
-    <script>
-        if({{growValue}}<0)
+    <script type="text/javascript">
+        if({{growValue}} < 0)
             document.getElementById("growValue").style.color = "#FF0000";
         else if({{growValue}} >0)
             document.getElementById("growValue").style.color = "#00FF00";

@@ -93,14 +93,28 @@ WSGI_APPLICATION = 'stock.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': '31177086_stock_web_app',
+#        'USER': '31177086_stock_web_app',
+#        'PASSWORD': 'mKMlNg__ag',
+#        'HOST': 'serwer1990534.home.pl',
+#        'PORT': '5432',
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '31177086_stock_web_app',
-        'USER': '31177086_stock_web_app',
-        'PASSWORD': 'mKMlNg__ag',
-        'HOST': 'serwer1990534.home.pl',
-        'PORT': '5432',
+    'default':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stockmastersdatabase',
+        'USER': 'azureuser@stockmastersserver',
+        'PASSWORD': 'TW*$Y%sdjfh',
+        'HOST': 'stockmastersserver.mysql.database.azure.com',
+        'PORT': 3306,
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
