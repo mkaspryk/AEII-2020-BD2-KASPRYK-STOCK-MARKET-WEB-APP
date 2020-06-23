@@ -1,8 +1,6 @@
 $(document).ready(
     function (){
-        console.log("zaczynam")
         $.getJSON('prices.json', function(data){
-            console.log('drukuje')
             console.log(data)
             $("#btc_price").html(data.btc)
             $("#eth_price").html(data.eth)
@@ -14,6 +12,4 @@ $(document).ready(
             $("#eos_price").html(data.eos)
             $("#bnb_price").html(data.bnb)
         })
-
-
 })

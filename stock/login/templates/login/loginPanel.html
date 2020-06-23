@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'home/base.html' %}
 {% block body %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/loginStyle.css'%}" />
 <div class="login-dark">
         <form method="post">
         	{% for message in messages %}
