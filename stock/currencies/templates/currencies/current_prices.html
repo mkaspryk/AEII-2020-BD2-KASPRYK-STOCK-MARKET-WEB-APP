@@ -1,0 +1,68 @@
+{% load static %}
+<table class="table table-dark">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>BTC</td>
+      <td id="btc_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">+0.23</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>ETH</td>
+      <td id="eth_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">-0.11</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>XRP</td>
+      <td id="xrp_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">+1.22</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>LTC</td>
+      <td id="ltc_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">-0.02</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>USDT</td>
+      <td id="usdt_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">+0.00</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>LIBRA</td>
+      <td id="libra_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">0.00</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>XMR</td>
+      <td id="xmr_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">-0.78</td>
+    </tr>
+        <tr>
+      <th scope="row">8</th>
+      <td>EOS</td>
+      <td id="eos_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">-1.87</td>
+    </tr>
+        <tr>
+      <th scope="row">9</th>
+      <td>BNB</td>
+      <td id="bnb_price" class="text-right">-</td>
+      <td class="text-right red_green_yellow">-2.21</td>
+    </tr>
+  </tbody>
+</table>
+<script>
+    let elements = document.getElementsByClassName("red_green_yellow")
+    for (let elem in elements) {
+        console.log(elem)
+    }
+</script>
+<script type="text/javascript" src={% static 'currencies/current_prices.js' %}></script>

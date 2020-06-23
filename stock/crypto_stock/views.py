@@ -10,4 +10,4 @@ def crypto_stock(request):
         graphs.return_app('BTC')
     api_handler = api_handling.ApiHandler()
     daily_history_data = api_handler.get_daily_history('BTC', 'USD')
-    return render(request, 'crypto_stock.html', {'daily_history_data': daily_history_data})
+    return render(request, 'crypto_stock/crypto_stock.html', {'daily_history_data': daily_history_data})

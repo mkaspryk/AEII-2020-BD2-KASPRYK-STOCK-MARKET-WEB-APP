@@ -2,7 +2,7 @@
 #  it should run 24/7 because fetched data are stored in the DB to create consistent history of prices.json changes
 
 # provider: coingecko.com
-# currencies being currently fetched by fetcher.py:
+# currencies being currently fetched by fetcher_command.py:
 # (to see all possible currencies, visit https://api.coingecko.com/api/v3/coins/list)
 
 import requests
@@ -35,32 +35,27 @@ url_parameters = {
 }
 
 class Command(BaseCommand):
-        help = 'Fetches current crypto prices to local database.'
+    help = 'Fetches current crypto prices to local database.'
 
-    def handle(self):
+    def handle(self, *args, **kwargs):
         url = base_url + urllib.parse.urlencode(url_parameters)
         currencies_info = {}
         try:
             fetched_data = requests.get(url).json()
             for row in fetched_data:
-                currency_symbol = row['symbol']
-                current_price = row['current_price']
-                currencies_info[currency_symbol] = current_price
+                currencies_info[row['symbol'].lower()] = row['current_price']
         except:
-            print("error occurred")
+            self.stdout.write("error occurred")
         prices = json.dumps(currencies_info)
-        try:
-            PriceTimeStamp(
-                btc_price=prices['btc'],
-                eth_price=prices['eth'],
-                xrp_price=prices['xrp'],
-                ltc_price=prices['ltc'],
-                usdt_price=prices['usdt'],
-                libra_price=prices['libra'],
-                xmr_price=prices['monero'],
-                eos_price=prices['eos'],
-                bnb_price=prices['binancecoin'],
-            ).save()
-        except:
-            print("error occured 2")
-        return currencies_info
+        self.stdout.write(prices)
+        PriceTimeStamp(
+            btc_price=currencies_info['btc'],
+            eth_price=currencies_info['eth'],
+            xrp_price=currencies_info['xrp'],
+            ltc_price=currencies_info['ltc'],
+            usdt_price=currencies_info['usdt'],
+            libra_price=0.00,  # currencies_info['libra'],
+            xmr_price=currencies_info['xmr'],
+            eos_price=currencies_info['eos'],
+            bnb_price=currencies_info['bnb'],
+        ).save()

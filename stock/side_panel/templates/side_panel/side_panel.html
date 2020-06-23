@@ -1,0 +1,16 @@
+{% extends 'home/base.html' %}
+{% block body %}
+{% load static %}
+<div>
+    <div class="row">
+        <div class="col-2">
+            {% include 'currencies/current_prices.html' %}
+        </div>
+        <div class="col-10">
+            {% block content %}
+                Error loading content.
+            {% endblock content %}
+        </div>
+    </div>
+</div>
+{% endblock %}

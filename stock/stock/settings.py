@@ -26,10 +26,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'portfolio',
+    'login',
     'crypto_stock',
     'currencies',
+    'search_bar',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
+    'side_panel',
+    'register',
     'channels_redis',
     'userArea',
     'adminArea',
@@ -76,7 +80,9 @@ ROOT_URLCONF = 'stock.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # os.path.join(BASE_DIR, 'template'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -170,4 +176,11 @@ ASGI_APPLICATION = 'stock.routing.application'
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('stock/home/static', 'stock/portfolio/static', 'stock/userArea/static', 'stock/adminArea/static',)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'home/static'),
+    os.path.join(BASE_DIR, 'portfolio/static'),
+    os.path.join(BASE_DIR, 'userArea/static'),
+    os.path.join(BASE_DIR, 'adminArea/static'),
+    os.path.join(BASE_DIR, 'search_bar/static'),
+    os.path.join(BASE_DIR, 'login/static'),
+]
