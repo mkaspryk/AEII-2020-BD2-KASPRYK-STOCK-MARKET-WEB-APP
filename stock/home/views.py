@@ -3,6 +3,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
+def prices(request):
+	return render(request, 'prices.json')
+	#with open("prices.json", 'r') as f:
+	#	return f.read()
+
 def index(request):
 	return render(request, 'index.html')
 

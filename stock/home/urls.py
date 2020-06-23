@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('prices.json', views.prices, name="prices"),
     path('', views.index, name="index"),
     #path('unban',views.unban, name="unban"),
     path('register',views.register, name="register"),

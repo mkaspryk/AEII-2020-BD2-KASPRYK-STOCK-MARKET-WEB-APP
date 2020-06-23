@@ -1,8 +1,5 @@
-
 {% extends 'base.html' %}
-
-{% block content %}
-
+{% block body %}
 <div class="login-dark">
         <form action="register" method="post">
             {% for message in messages %}
@@ -23,5 +20,4 @@
 			<a href="{% url 'login' %}" class="forgot">Have an account? Log In</a> 
         </form>
 </div>
-
 {% endblock %}

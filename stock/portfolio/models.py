@@ -15,7 +15,7 @@ class UserStock(models.Model):
 
 class Stock(models.Model):
     owner = models.ForeignKey(UserStock, on_delete=models.DO_NOTHING)
-    currency = models.ForeignKey('crypto_stock.Currency', on_delete=models.DO_NOTHING)
+    currency = models.ForeignKey('currencies.Currency', on_delete=models.DO_NOTHING)
     amount = models.DecimalField(max_digits=20, decimal_places=2)
 
     def get_value(self):

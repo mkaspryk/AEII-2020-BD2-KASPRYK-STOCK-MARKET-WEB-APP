@@ -1,22 +1,19 @@
-const crypto_names = ['btc', 'eht', 'xrp']
-const url = 'https://bitbay.net/API/Public/btc/ticker.json/'
+$(document).ready(
+    function (){
+        console.log("zaczynam")
+        $.getJSON('prices.json', function(data){
+            console.log('drukuje')
+            console.log(data)
+            $("#btc_price").html(data.btc)
+            $("#eth_price").html(data.eth)
+            $("#xrp_price").html(data.xrp)
+            $("#ltc_price").html(data.ltc)
+            $("#usdt_price").html(data.usdt)
+            $("#libra_price").html(data.lira)
+            $("#xmr_price").html(data.xmr)
+            $("#eos_price").html(data.eos)
+            $("#bnb_price").html(data.bnb)
+        })
 
-function updatePrice(){
-    console.log("zaczynam")
-    //$.getJSON("https://api.bitfinex.com/v1/ticker/btcusd", function(data){
-    //    console.log(data)
-    //    var element = document.getElementById(crypto_name+"_price")
-    //    element.innerHTML = String(data.last)
-    //})
 
-    var httpreq = new XMLHttpRequest()
-    httpreq.open("GET", url, false)
-    httpreq.send(null)
-    console.log(httpreq.responseText)
-    var json = JSON.parse(httpreq.responseText)
-    var price = json.last
-    var element = document.getElementById("btc_price")
-    element.innerHTML = String(2137)
-}
-
-updatePrice()
+})

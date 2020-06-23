@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'home',
     'portfolio',
     'crypto_stock',
+    'currencies',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
     'channels_redis',
@@ -105,7 +106,8 @@ WSGI_APPLICATION = 'stock.wsgi.application'
 #}
 
 DATABASES = {
-    'default':{
+    'default': {},
+    'remote': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'stockmastersdatabase',
         'USER': 'azureuser@stockmastersserver',
@@ -115,8 +117,17 @@ DATABASES = {
         'OPTIONS': {
             'sql_mode': 'traditional',
         }
-    }
+    },
+    'local': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    },
 }
+
+DATABASE_ROUTERS = [
+    'stock.routers.LocalDatabaseRouter',
+    'stock.routers.RemoteDatabaseRouter',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -159,4 +170,4 @@ ASGI_APPLICATION = 'stock.routing.application'
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('stock/home/static','stock/portfolio/static','stock/userArea/static','stock/adminArea/static',)
+STATICFILES_DIRS = ('stock/home/static', 'stock/portfolio/static', 'stock/userArea/static', 'stock/adminArea/static',)

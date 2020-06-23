@@ -1,8 +1,5 @@
-
 {% extends 'base.html' %}
-
-{% block content %}
-
+{% block body %}
 <div class="login-dark">
         <form method="post">
         	{% for message in messages %}
@@ -19,5 +16,4 @@
             <a href="{% url 'resetPassword' %}" class="forgot">Forgot your email or password?</a>
         </form>
 </div>
-
 {% endblock %}

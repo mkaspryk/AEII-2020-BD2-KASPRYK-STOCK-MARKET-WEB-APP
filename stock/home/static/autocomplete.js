@@ -1,4 +1,4 @@
- var countries = [
+ var currencies = [
      "Bitcoin", "BTC",
      "Ethereum", "ETH",
      "Ripple", "XRP",
@@ -7,7 +7,7 @@
      "Libra", "LIBRA",
      "Monero", "XMR",
      "EOS",
-     "Binance Coin", "BNB"
+     "Binance Coin", "BNB",
  ]
 
  console.log("autocomplete sie zaladowal")
@@ -110,4 +110,4 @@ document.addEventListener("click", function (e) {
 });
 }
 
-autocomplete(document.getElementById("crypto_input"), countries);
+autocomplete(document.getElementById("crypto_input"), currencies);
