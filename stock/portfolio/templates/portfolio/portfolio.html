@@ -1,11 +1,8 @@
 {% extends 'side_panel/side_panel.html' %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }} static/portfolioStyle.css" />
-
-<!--<h1 class="font-weight-light mt-4 text-white"> Welcome back {{user.username}} </h1>
-<h1 class="font-weight-light mt-4 text-white"> Your stocks here to implement </h1>    -->
-<div class="portfolio-stocks-panel-dark card-body" style="margin-top: 10px;">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolioStyle.css' %}" />
+<div class="portfolio-dark portfolio-stocks-panel-dark card-body" style="margin-top: 10px;">
     <h1 class = "portfolio-stocks-balance-title-dark card-title">Your balance: </h1>
     <h2 id = "growValue" class="card-text mx-auto portfolio-stocks-balance-text-dark" style="width: 200px; padding-top: 50px;">{{growValue}}</h2>
     <script type="text/javascript">

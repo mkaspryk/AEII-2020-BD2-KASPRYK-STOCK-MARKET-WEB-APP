@@ -13,7 +13,9 @@ SECRET_KEY = '!(zhi+zeq$e+&7oa0iw@#9nhdn^9!29l-&e6*lyu$cz@!*%enz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'webdev',
+]
 
 # Application definition
 
@@ -38,7 +40,6 @@ INSTALLED_APPS = [
     'userArea',
     'adminArea',
 ]
-
 
 CHANNEL_LAYERS = {
     'DEFAULT': {
@@ -90,6 +91,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'currencies.context_processors.extras',
             ],
         },
     },

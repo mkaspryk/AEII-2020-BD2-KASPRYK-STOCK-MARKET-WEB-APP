@@ -1,8 +1,4 @@
-
-
 .portfolio-dark{
-
-  height:1000px;
   background:#475d62 url(images/portfolioBackground.jpg);
   background-size:cover;
   position:relative;
@@ -23,8 +19,6 @@
     background: #303030;
     color: #eeeeee;
 }
-
-
 
 .portfolio-stocks-panel-dark{
     background: rgba(30, 40, 51, 0.8);

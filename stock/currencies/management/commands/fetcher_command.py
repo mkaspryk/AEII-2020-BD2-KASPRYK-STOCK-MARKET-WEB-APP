@@ -9,7 +9,7 @@ import requests
 import urllib
 import json
 from django.core.management.base import BaseCommand, CommandError
-from currencies.models import PriceTimeStamp
+from currencies.models import PriceTimeStamp, Currency
 
 base_url = "https://api.coingecko.com/api/v3/coins/markets?"
 
@@ -19,7 +19,7 @@ provider_currencies_ids = [
     'ripple',           # 'xrp'
     'litecoin',         # 'ltc'
     'tether',           # 'usdt'
-    'libra',            # 'libra'
+    'tezos',            # 'tezos'
     'monero',           # 'xmr'
     'eos',              # 'eos'
     'binancecoin',      # 'bnb'
@@ -34,28 +34,50 @@ url_parameters = {
     'sparkline': 'false',
 }
 
-class Command(BaseCommand):
-    help = 'Fetches current crypto prices to local database.'
 
+# Fetches current crypto prices to local database.
+class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         url = base_url + urllib.parse.urlencode(url_parameters)
-        currencies_info = {}
-        try:
-            fetched_data = requests.get(url).json()
-            for row in fetched_data:
-                currencies_info[row['symbol'].lower()] = row['current_price']
-        except:
-            self.stdout.write("error occurred")
-        prices = json.dumps(currencies_info)
+        fetched_data = requests.get(url).json()
+        price_timestamp = {}
+        for row in fetched_data:
+            curr = None
+            if Currency.objects.filter(id=row['id']).exists():
+                curr = Currency.objects.get(id=row['id'])
+                curr.symbol = row['symbol']
+                curr.current_price = row['current_price']
+                curr.market_cap = row['market_cap']
+                curr.total_volume = row['total_volume']
+                curr.high_24h = row['high_24h']
+                curr.low_24h = row['low_24h']
+                curr.price_change_24h = row['price_change_24h']
+                curr.price_change_percentage_24h = row['price_change_percentage_24h']
+            else:  # creates new record
+                curr = Currency(
+                    id=row['id'],
+                    symbol=row['symbol'],
+                    current_price=row['current_price'],
+                    market_cap=row['market_cap'],
+                    total_volume=row['total_volume'],
+                    high_24h=row['high_24h'],
+                    low_24h=row['low_24h'],
+                    price_change_24h=row['price_change_24h'],
+                    price_change_percentage_24h=row['price_change_percentage_24h']
+                )
+            curr.save()
+            price_timestamp[curr.id] = curr.current_price
+        prices = json.dumps(price_timestamp)
         self.stdout.write(prices)
         PriceTimeStamp(
-            btc_price=currencies_info['btc'],
-            eth_price=currencies_info['eth'],
-            xrp_price=currencies_info['xrp'],
-            ltc_price=currencies_info['ltc'],
-            usdt_price=currencies_info['usdt'],
-            libra_price=0.00,  # currencies_info['libra'],
-            xmr_price=currencies_info['xmr'],
-            eos_price=currencies_info['eos'],
-            bnb_price=currencies_info['bnb'],
+            bitcoin_price=price_timestamp['bitcoin'],
+            ethereum_price=price_timestamp['ethereum'],
+            ripple_price=price_timestamp['ripple'],
+            litecoin_price=price_timestamp['litecoin'],
+            tether_price=price_timestamp['tether'],
+            tezos_price=price_timestamp['tezos'],
+            monero_price=price_timestamp['monero'],
+            eos_price=price_timestamp['eos'],
+            binancecoin_price=price_timestamp['binancecoin'],
         ).save()
+
