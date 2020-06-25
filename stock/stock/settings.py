@@ -15,6 +15,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'webdev',
+    'localhost',
 ]
 
 # Application definition
