@@ -1,3 +1,5 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
 * { box-sizing: border-box; }
 body {
   font: 16px Arial;
@@ -47,3 +49,23 @@ input[type=submit] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+.search{
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.search input{
+  text-indent:32px;
+}
+
+.search .fa-search{
+  font-size:18px;
+  -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+  top:50%;
+  left:24px;
+}
+
+

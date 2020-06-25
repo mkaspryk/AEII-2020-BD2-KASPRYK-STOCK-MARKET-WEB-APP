@@ -4,6 +4,9 @@
 <form class="form-inline mx-auto" method="GET" autocomplete="off" action="{% url 'crypto_stock' %}">
     {% csrf_token %}
     <div class="autocomplete">
-        <input id="crypto_input" type="search" name="selected_crypto" placeholder="&#x1F50E; Search for BTC, Ethereum, ..." style="width:400px;">
+        <div class="search">
+            <span class="fa fa-search"></span>
+            <input id="crypto_input" type="search" name="selected_crypto" placeholder="Search for BTC, Ethereum, ..." style="width:400px;">
+        </div>
     </div>
 </form>

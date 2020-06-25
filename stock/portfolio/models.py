@@ -20,4 +20,3 @@ class Stock(models.Model):
 
     def get_value(self):
         return self.amount * self.currency.price
-
