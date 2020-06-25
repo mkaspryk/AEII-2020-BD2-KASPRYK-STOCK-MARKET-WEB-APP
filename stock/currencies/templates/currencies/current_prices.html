@@ -1,8 +1,12 @@
 {% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static 'currencies/current_prices.css' %}">
-<table class="table table-dark">
+<table class="table table-dark" id="current-prices-table">
   <thead>
+  <th class="table-sorting-header" id="table-sort-by-quote">Sort by:</th>
+  <th class="table-sorting-header" id="currency-id-header">Name</th>
+  <th class="table-sorting-header" id="currency-price-header">Price</th>
+  <th class="table-sorting-header" id="currency-change-header">Change 24h</th>
   </thead>
   <tbody>
   {% for currency in currencies %}
@@ -16,3 +20,4 @@
   </tbody>
 </table>
 <script type="text/javascript" src={% static 'currencies/current_prices.js' %}></script>
+<script type="text/javascript" src={% static 'currencies/sort_table.js' %}></script>

@@ -26,8 +26,46 @@ function refresh_prices() {
     })
 }
 
+// TODO: refreshing order after refreshing prices
+
+var table = $('#current-prices-table');
+$('#currency-id-header, #currency-price-header, #currency-change-header')
+    .each(function(){
+        var th = $(this),
+            thIndex = th.index(),
+            inverse = false;
+        th.click(function(){
+            var column = table.find('td').filter(function(){
+                return $(this).index() === thIndex;
+            })
+            console.log(this.id)
+            if(this.id==="currency-id-header"){
+                column.sortElements(
+                function(a, b){
+                return $.text([a]) > $.text([b]) ?
+                    inverse ? -1 : 1
+                    : inverse ? 1 : -1;
+            }, function(){
+                // parentNode is the element we want to move
+                return this.parentNode;
+            });
+            } else {
+                column.sortElements(
+                function(a, b){
+                return parseFloat($.text([a])) > parseFloat($.text([b])) ?
+                    inverse ? -1 : 1
+                    : inverse ? 1 : -1;
+            }, function(){
+                // parentNode is the element we want to move
+                return this.parentNode;
+            });
+            }
+            inverse = !inverse;
+        });
+    });
+
 refresh_prices()
 $(document).ready(
     setInterval(function(){
         refresh_prices()
-}, 10000))
+    }, 5000))

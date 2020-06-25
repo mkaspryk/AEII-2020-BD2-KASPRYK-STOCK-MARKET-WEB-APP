@@ -10,3 +10,11 @@
 .currency-price-row:hover{
     background-color:rgb(40,40,60);
 }
+
+#table-sort-by-quote{
+    font-weight: normal;
+}
+
+.table-sorting-header{
+    font-size: small;
+}
