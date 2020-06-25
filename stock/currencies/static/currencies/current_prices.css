@@ -1,0 +1,12 @@
+.crypto-icon-medium{
+    width: 30px;
+    height:30px;
+}
+
+.currency-price-row:hover .crypto-icon-medium{
+    filter:brightness(125%);
+}
+
+.currency-price-row:hover{
+    background-color:rgb(40,40,60);
+}

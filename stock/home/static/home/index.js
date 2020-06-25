@@ -1,7 +1,5 @@
 var barCount = 60;
 var initialDateStr = '01 Apr 2020 00:00 Z';
-console.log("zaladowano index.js")
-
 function initChart(chartName, label){
 	var ctx = document.getElementById(chartName).getContext('2d');
 	var chart = new Chart(ctx, {

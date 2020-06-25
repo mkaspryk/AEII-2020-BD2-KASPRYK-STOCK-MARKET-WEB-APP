@@ -1,9 +1,5 @@
-console.log("current_prices sie zajebal")
-
-let currency = "USD"
-
 function format(price){
-    return currency + ' ' + price.toFixed(2).toString()
+    return price.toFixed(2).toString()
 }
 
 function refresh_prices() {
@@ -18,11 +14,20 @@ function refresh_prices() {
         $("#monero_price").html(format(data.monero))
         $("#eos_price").html(format(data.eos))
         $("#binancecoin_price").html(format(data.binancecoin))
+        let elements = document.getElementsByClassName("red_green_yellow")
+        Array.prototype.forEach.call(elements, function(elem){
+            let value = parseFloat(elem.innerHTML)
+            if(value < 0.0){
+              elem.style.color = 'red'
+            }else{
+              elem.style.color = 'green'
+            }
+        })
     })
 }
 
-$(document).ready(refresh_prices)
-
-setInterval(function(){
-    refresh_prices()
-}, 10000);
+refresh_prices()
+$(document).ready(
+    setInterval(function(){
+        refresh_prices()
+}, 10000))

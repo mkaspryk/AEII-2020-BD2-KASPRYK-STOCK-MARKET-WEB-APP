@@ -1,26 +1,18 @@
 {% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'currencies/current_prices.css' %}">
 <table class="table table-dark">
   <thead>
   </thead>
   <tbody>
   {% for currency in currencies %}
-    <tr>
-      <td  style="font-weight: bold">{{ currency.symbol|upper }}</td>
-      <td id="{{ currency.id }}_price" class="text-right">USD {{ currency.current_price }}</td>
+    <tr class="currency-price-row">
+      <td><img class="crypto-icon-medium" src="/static/currencies/crypto_icons/{{ currency.id }}.webp" alt="error"/></td>
+      <td style="font-weight: bold">{{ currency.symbol|upper }}</td>
+      <td id="{{ currency.id }}_price" class="text-right">{{ currency.current_price }}</td>
       <td class="text-right red_green_yellow">{{ currency.price_change_percentage_24h|floatformat:3 }}%</td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
-<script>
-    let elements = document.getElementsByClassName("red_green_yellow")
-    Array.prototype.forEach.call(elements, function(elem){
-        let value = parseFloat(elem.innerHTML)
-        if(value < 0.0){
-            elem.style.color = 'red'
-        }else{
-            elem.style.color = 'green'
-        }
-    })
-</script>
 <script type="text/javascript" src={% static 'currencies/current_prices.js' %}></script>

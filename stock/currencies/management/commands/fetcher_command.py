@@ -39,6 +39,7 @@ url_parameters = {
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         url = base_url + urllib.parse.urlencode(url_parameters)
+        self.stdout.write("Fetching from:\n" + url)
         fetched_data = requests.get(url).json()
         price_timestamp = {}
         for row in fetched_data:

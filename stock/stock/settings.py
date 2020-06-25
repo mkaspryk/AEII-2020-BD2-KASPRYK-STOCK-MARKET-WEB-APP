@@ -179,10 +179,4 @@ ASGI_APPLICATION = 'stock.routing.application'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static'),
-    os.path.join(BASE_DIR, 'portfolio/static'),
-    os.path.join(BASE_DIR, 'userArea/static'),
-    os.path.join(BASE_DIR, 'adminArea/static'),
-    os.path.join(BASE_DIR, 'search_bar/static'),
-    os.path.join(BASE_DIR, 'login/static'),
 ]
