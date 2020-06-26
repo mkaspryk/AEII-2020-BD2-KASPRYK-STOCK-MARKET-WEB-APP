@@ -10,7 +10,7 @@
      "Binance Coin", "BNB",
  ]
 
- console.log("autocomplete sie zaladowal")
+ console.log("autocomplete has been loaded")
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,

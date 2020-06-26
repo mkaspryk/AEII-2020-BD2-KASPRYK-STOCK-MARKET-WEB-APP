@@ -11,5 +11,6 @@ urlpatterns = [
     path('', include('login.urls')),
     path('', include('userArea.urls')),
     path('', include('crypto_stock.urls')),
+    path('', include('quick_purchase.urls')),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
 ]

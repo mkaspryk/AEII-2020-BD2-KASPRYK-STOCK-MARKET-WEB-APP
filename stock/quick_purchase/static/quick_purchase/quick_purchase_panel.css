@@ -1,0 +1,17 @@
+#balance-field{
+    font-style: italic;
+    font-weight: lighter;
+    margin-right:8px;
+}
+
+#quick-buy-text{
+    font-weight: bold;
+}
+
+#quick-buy-panel{
+    border-top:2px solid #475d62;
+    color:white;
+    padding:8px;
+    background:linear-gradient(to right, #1e2833, #0077dd);
+    border-bottom:2px solid #475d62;
+}

@@ -18,3 +18,7 @@
 .table-sorting-header{
     font-size: small;
 }
+
+.prices-header-row{
+    background: linear-gradient(to top, #1e2833, #808080);
+}

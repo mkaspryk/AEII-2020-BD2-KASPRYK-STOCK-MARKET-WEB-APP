@@ -22,6 +22,8 @@
  *   The <td>'s parent (<tr>) will be sorted instead
  *   of the <td> itself.
  */
+console.log("sort_table has been loaded")
+
 jQuery.fn.sortElements = (function(){
     var sort = [].sort;
     return function(comparator, getSortable) {

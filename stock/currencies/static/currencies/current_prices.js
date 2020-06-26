@@ -1,3 +1,5 @@
+console.log("current_prices has been loaded")
+
 function format(price){
     return price.toFixed(2).toString()
 }

@@ -4,7 +4,16 @@
 <div class="container-fluid p-0">
     <div class="row no-gutters">
         <div class="col-sm-2">
-            {% include 'currencies/current_prices.html' %}
+            <div class="container-fluid p-0 m-0">
+                <div class="row no-gutters p-0 m-0">
+                {% include 'currencies/current_prices.html' %}
+                </div>
+            </div>
+            <div class="container-fluid p-0 mt-0">
+                <div class="row no-gutters">
+                {% include 'quick_purchase/quick_purchase_panel.html' %}
+                </div>
+            </div>
         </div>
         <div class="col-sm-10">
             {% block content %}S

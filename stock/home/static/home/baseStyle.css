@@ -9,14 +9,16 @@ body {
   flex: 1 0 auto;
 }
 
-#sticky-footer {
-  flex-shrink: none;
+#main-logo {
+    color: #303090;
+    font-size: x-large;
+    margin-left: -12px;
+    font-weight: 700;
 }
 
-#main_logo{
-    color:#303090;
-
-    font-weight: bold;
+.navbar-text{
+    font-size:large;
+    font-weight:500;
 }
 
 #logout_button{
@@ -59,8 +61,4 @@ body {
 
 #page-content {
   flex: 1 0 auto;
-}
-
-#sticky-footer {
-  flex-shrink: none;
 }

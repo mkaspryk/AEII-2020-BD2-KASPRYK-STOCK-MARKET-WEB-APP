@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'channels_redis',
     'userArea',
     'adminArea',
+    'quick_purchase',
 ]
 
 CHANNEL_LAYERS = {

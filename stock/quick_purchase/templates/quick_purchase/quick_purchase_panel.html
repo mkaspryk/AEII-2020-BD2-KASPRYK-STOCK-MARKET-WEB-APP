@@ -1,0 +1,101 @@
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'quick_purchase/quick_purchase_panel.css' %}">
+<!--
+<table class="table table-dark mb-0" id="quick-buy-table">
+    <colgroup>
+        <col span="1" style="width: 60%;">
+        <col span="1" style="width: 40%;">
+    </colgroup>
+    <thead>
+        <th class="m-0 p-2">Quick buy</th>
+        <th class="text-right m-0 p-2" id="balance-field">show balance</th>
+    </thead>
+    <form>
+    <tbody>
+        <tr>
+            <td class="m-0 pt-0 px-1">
+                <div class="form-group mb-0">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Buying...">
+                </div>
+            </td>
+            <td class="m-0 pt-0 px-1">
+                <div class="form-group mb-0">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>btc</option>
+                        <option>eth</option>
+                        <option>ltc</option>
+                        <option>usd</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="m-0 p-1">
+                <div class="form-group mb-0">
+                    <input type="email" class="form-control mb-0" id="exampleFormControlInput2" placeholder="Paying with...">
+                </div>
+            </td>
+            <td class="m-0 p-1">
+                <div class="form-group mb-0">
+                    <select class="form-control mb-0" id="exampleFormControlSelect2">
+                        <option>btc</option>
+                        <option>eth</option>
+                        <option>ltc</option>
+                        <option>usd</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    </form>
+</table>
+!-->
+<div class="container-fluid" id="quick-buy-panel">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row mb-2">
+            <div class="col-sm-7" id="quick-buy-text">Quick buy:</div>
+            <div class="col-sm-5 text-right"><span id="balance-field">balance</span><i id="balance-visibility-toggle" class="far fa-eye"></i></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="buyAmount" placeholder="Buying...">
+            </div>
+            <div class="col-sm-5 pl-2">
+                <div class="form-group">
+                    <select class="form-control" id="buyCurrency">
+                        <option>btc</option>
+                        <option>eth</option>
+                        <option>ltc</option>
+                        <option>usd</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="payAmount" placeholder="Paying...">
+            </div>
+            <div class="col-sm-5 pl-2">
+                <div class="form-group">
+                    <select class="form-control" id="payCurrency">
+                        <option>btc</option>
+                        <option>eth</option>
+                        <option>ltc</option>
+                        <option>usd</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-sm-7">
+
+            </div>
+            <div class="col-sm-5 pl-2">
+                <input type="submit" class="form-control" id="exampleFormControlInput2" value="BUY">
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src={% static 'quick_purchase/quick_purchase_panel.js' %}></script>

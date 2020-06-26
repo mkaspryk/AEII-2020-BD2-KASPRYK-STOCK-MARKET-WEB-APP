@@ -4,19 +4,19 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static 'login/loginStyle.css'%}" />
 <div class="login-dark">
-        <form method="post">
-        	{% for message in messages %}
-            <div class="alert alert-danger" role="alert" style="text-align: center;">
-                <h7> {{message}} </h7>
-            </div>
-            {% endfor %}
-        	{% csrf_token %}
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
-            <a href="{% url 'resetPassword' %}" class="forgot">Forgot your email or password?</a>
-        </form>
+    <form method="post">
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+            <h7> {{message}} </h7>
+        </div>
+        {% endfor %}
+        {% csrf_token %}
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+        <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
+        <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
+        <a href="{% url 'resetPassword' %}" class="forgot">Forgot your email or password?</a>
+    </form>
 </div>
 {% endblock %}
