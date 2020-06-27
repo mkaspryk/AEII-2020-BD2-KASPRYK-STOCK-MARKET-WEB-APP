@@ -4,6 +4,10 @@
     margin-right:8px;
 }
 
+#balance-field-value{
+    display:none;
+}
+
 #quick-buy-text{
     font-weight: bold;
 }

@@ -7,14 +7,26 @@
         {% csrf_token %}
         <div class="row mb-2">
             <div class="col-sm-7" id="quick-buy-text">Quick buy:</div>
-            <div class="col-sm-5 text-right"><span id="balance-field">balance</span><i id="balance-visibility-toggle" class="far fa-eye"></i></div>
+            <div class="col-sm-5 text-right">
+                <span id="balance-field">
+                    <span id="balance-field-placeholder">show balance</span>
+                    <span id="balance-field-value">${{ user_balance_context }}</span>
+                    <i id="balance-visibility-toggle" class="far fa-eye"></i>
+                </span>
+            </div>
         </div>
         <div class="row no-gutters">
-                <div class="col-sm-7 form-group">
-                    {{ quick_buy_form.buy_amount|attr:"class:form-control"|attr:"placeholder:Buying..."}}
-                </div>
-                <div class="col-sm-5 pl-2 form-group">
-                    {{ quick_buy_form.buy_currency|attr:"class:form-control" }}
+            <div class="col-sm-7 form-group">
+                <!--<input type="text" name="buy_amount" maxlength="30" placeholder="Buying..." class="form-control" required id="id_buy_amount">!-->
+                {{ quick_buy_form.buy_amount|attr:"class:form-control"|attr:"placeholder:Buying..."}}
+            </div>
+            <div class="col-sm-5 pl-2 form-group">
+                <select name="buy_currency" class="form-control" id="id_buy_currency">
+                    {% for currency in currencies %}
+                    <option value="{{ currency.symbol }}">{{ currency.symbol|upper }}</option>
+                    {% endfor %}
+                </select>
+                <!--{{ quick_buy_form.buy_currency|attr:"class:form-control" }}!-->
             </div>
         </div>
         <div class="row no-gutters">
@@ -22,7 +34,12 @@
                 {{ quick_buy_form.pay_amount|attr:"class:form-control"|attr:"placeholder:Paying..." }}
             </div>
             <div class="form-group col-sm-5 pl-2">
-                {{ quick_buy_form.pay_currency|attr:"class:form-control" }}
+                <select name="pay_currency" class="form-control" id="id_pay_currency">
+                    {% for available_currency in available_currency_set %}
+                    <option value="{{ available_currency }}">{{ available_currency|upper }}</option>
+                    {% endfor %}
+                </select>
+                <!--{{ quick_buy_form.pay_currency|attr:"class:form-control" }}!-->
             </div>
         </div>
         <div class="row no-gutters">

@@ -1,6 +1,5 @@
 console.log("quick_purchase_panel has been loaded")
 
-var balanceField = document.getElementById("balance-field")
 var visibilityToggle = document.getElementById("balance-visibility-toggle")
 var locked_on = false
 
@@ -14,13 +13,15 @@ function click() {
 
 function mouseOut() {
     if(!locked_on) {
-        balanceField.innerHTML = "balance";
+        $('#balance-field-placeholder').css('display', 'inline');
+        $('#balance-field-value').css('display', 'none');
     }
 }
 
 function mouseOver() {
     if(!locked_on){
-        balanceField.innerHTML = "$45,227.19";
+        $('#balance-field-placeholder').css('display', 'none');
+        $('#balance-field-value').css('display', 'inline');
     }
 }
 
@@ -36,13 +37,13 @@ $(document).on('submit', '#quick-buy-form', function(e){
             pay_amount:$('#id_pay_amount').val(),
             pay_currency:$('#id_pay_currency').val(),
             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
-        },
-        success:function(){
-            console.log($('#id_buy_amount').val())
-            console.log($('#id_buy_currency').val())
-            console.log($('#id_pay_amount').val())
-            console.log($('#id_pay_currency').val())
-            alert("woo hoo")
-        }
+        }//,
+        //success:function(){
+        //    console.log($('#id_buy_amount').val())
+        //    console.log($('#id_buy_currency').val())
+        //    console.log($('#id_pay_amount').val())
+        //    console.log($('#id_pay_currency').val())
+        //    alert("woo hoo")
+       // }
     })
 })
