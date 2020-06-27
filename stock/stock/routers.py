@@ -10,9 +10,9 @@ class LocalDatabaseRouter(object):
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
-        if obj1._meta.app_label in ['currencies'] and obj2._meta.app_label in ['currencies']:
-            return True
-        return None
+        # if obj1._meta.app_label in ['currencies'] and obj2._meta.app_label in ['currencies']:
+        return True
+        # return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if db == 'local':

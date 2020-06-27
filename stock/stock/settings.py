@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'login',
     'crypto_stock',
     'currencies',
+    'funds',
     'search_bar',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',

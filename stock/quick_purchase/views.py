@@ -17,11 +17,9 @@ def quick_buy(request):
 
 def perform_quick_buy(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        print(request)
         buy_amount = request.POST.get('buy_amount')
         buy_currency = request.POST.get('buy_currency')
         pay_amount = request.POST.get('pay_amount')
         pay_currency = request.POST.get('pay_currency')
         print(f"buying {buy_amount} {buy_currency} for {pay_amount} {pay_currency}...")
     return HttpResponse('')
-
