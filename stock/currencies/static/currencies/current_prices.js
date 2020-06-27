@@ -1,28 +1,23 @@
 console.log("current_prices has been loaded")
 
 function format(price){
-    return price.toFixed(2).toString()
+    return parseFloat(price).toFixed(2).toString()
+}
+
+function format_percentage(price_change){
+    return parseFloat(price_change).toFixed(3).toString()+"%"
 }
 
 function refresh_prices() {
-    $.getJSON('currencies/prices.json', function (data) {
-        console.log(data)
-        $("#bitcoin_price").html(format(data.bitcoin))
-        $("#ethereum_price").html(format(data.ethereum))
-        $("#ripple_price").html(format(data.ripple))
-        $("#litecoin_price").html(format(data.litecoin))
-        $("#tether_price").html(format(data.tether))
-        $("#tezos_price").html(format(data.tezos))
-        $("#monero_price").html(format(data.monero))
-        $("#eos_price").html(format(data.eos))
-        $("#binancecoin_price").html(format(data.binancecoin))
-        let elements = document.getElementsByClassName("red_green_yellow")
-        Array.prototype.forEach.call(elements, function(elem){
-            let value = parseFloat(elem.innerHTML)
-            if(value < 0.0){
-              elem.style.color = 'red'
+    $.getJSON('/currencies/prices.json/', function (data) {
+        $.each(data, function(){
+            $("#"+this.id+"_price").html(format(this.current_price))
+            let price_change = $("#"+this.id+"_price_change_percentage_24h")
+            price_change.html(format_percentage(this.price_change_percentage_24h))
+            if(this.price_change_percentage_24h < 0.0){
+                price_change.css('color', 'red')
             }else{
-              elem.style.color = 'green'
+                price_change.css('color', 'green')
             }
         })
     })

@@ -14,7 +14,7 @@
       <td><img class="crypto-icon-medium" src="/static/currencies/crypto_icons/{{ currency.id }}.webp" alt="error"/></td>
       <td style="font-weight: bold">{{ currency.symbol|upper }}</td>
       <td id="{{ currency.id }}_price" class="text-right">{{ currency.current_price }}</td>
-      <td class="text-right red_green_yellow">{{ currency.price_change_percentage_24h|floatformat:3 }}%</td>
+      <td id="{{ currency.id }}_price_change_percentage_24h" class="text-right">{{ currency.price_change_percentage_24h|floatformat:3 }}%</td>
     </tr>
   {% endfor %}
   </tbody>

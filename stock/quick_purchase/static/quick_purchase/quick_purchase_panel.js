@@ -23,3 +23,26 @@ function mouseOver() {
         balanceField.innerHTML = "$45,227.19";
     }
 }
+
+
+$(document).on('submit', '#quick-buy-form', function(e){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'/perform_quick_buy/',
+        data:{
+            buy_amount:$('#id_buy_amount').val(),
+            buy_currency:$('#id_buy_currency').val(),
+            pay_amount:$('#id_pay_amount').val(),
+            pay_currency:$('#id_pay_currency').val(),
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+        },
+        success:function(){
+            console.log($('#id_buy_amount').val())
+            console.log($('#id_buy_currency').val())
+            console.log($('#id_pay_amount').val())
+            console.log($('#id_pay_currency').val())
+            alert("woo hoo")
+        }
+    })
+})

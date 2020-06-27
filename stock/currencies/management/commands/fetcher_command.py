@@ -10,21 +10,11 @@ import urllib
 import json
 from django.core.management.base import BaseCommand, CommandError
 from currencies.models import PriceTimeStamp, Currency
+from currencies.app_settings import currencies
 
 base_url = "https://api.coingecko.com/api/v3/coins/markets?"
 
-provider_currencies_ids = [
-    'bitcoin',          # 'btc'
-    'ethereum',         # 'eth'
-    'ripple',           # 'xrp'
-    'litecoin',         # 'ltc'
-    'tether',           # 'usdt'
-    'tezos',            # 'tezos'
-    'monero',           # 'xmr'
-    'eos',              # 'eos'
-    'binancecoin',      # 'bnb'
-]
-currency_list = ','.join([currency for currency in provider_currencies_ids])
+currency_list = ','.join([currency for currency in currencies])
 
 url_parameters = {
     'ids': currency_list,

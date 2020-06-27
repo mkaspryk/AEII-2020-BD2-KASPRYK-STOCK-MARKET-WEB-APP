@@ -1,16 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from currencies.app_settings import currencies
+# todo rename portfolio to wallet, UserStock to UserWallet
 
 # extending built-in User class:
 class UserStock(models.Model):
     user = models.OneToOneField(User, on_delete=models.PROTECT)
+    #cena_bitcoin = models.DecimalField(max_digits=20, decimal_places=2)
+    def __init__(self):
+        setattr(UserStock, 'cena_bitcoin', models.DecimalField(max_digits=20, decimal_places=2))
 
-    def get_value(self):
-        sum = 0
-        for stock in self.stock_set:
-            sum = sum + stock.get_value()
-        return sum
+
+
+
+@receiver(post_save, sender=User)
+def create_user_stock(sender, instance, created, **kwargs):
+    if created:
+        print("creating user_stock")
+        UserStock.objects.create(user=instance)
 
 
 class Stock(models.Model):

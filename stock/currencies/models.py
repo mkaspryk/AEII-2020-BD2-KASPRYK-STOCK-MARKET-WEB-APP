@@ -1,4 +1,5 @@
 from django.db import models
+from currencies.app_settings import currencies
 import json
 
 class Currency(models.Model):
@@ -15,26 +16,33 @@ class Currency(models.Model):
 
 class PriceTimeStamp(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, editable=False, null=False, blank=False)
-    bitcoin_price = models.DecimalField(max_digits=20, decimal_places=2)
-    ethereum_price = models.DecimalField(max_digits=20, decimal_places=2)
-    ripple_price = models.DecimalField(max_digits=20, decimal_places=2)
-    litecoin_price = models.DecimalField(max_digits=20, decimal_places=2)
-    tether_price = models.DecimalField(max_digits=20, decimal_places=2)
-    tezos_price = models.DecimalField(max_digits=20, decimal_places=2)
-    monero_price = models.DecimalField(max_digits=20, decimal_places=2)
-    eos_price = models.DecimalField(max_digits=20, decimal_places=2)
-    binancecoin_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #bitcoin_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #ethereum_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #ripple_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #litecoin_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #tether_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #tezos_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #monero_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #eos_price = models.DecimalField(max_digits=20, decimal_places=2)
+    #binancecoin_price = models.DecimalField(max_digits=20, decimal_places=2)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for currency in currencies:
+            self.__setattr__(currency + "_price", models.DecimalField(max_digits=20, decimal_places=2))
+        self.save()
 
     def to_json(self):
         diction = {}
-        diction["bitcoin"] = float(self.bitcoin_price)
-        diction["ethereum"] = float(self.ethereum_price)
-        diction["ripple"] = float(self.ripple_price)
-        diction["litecoin"] = float(self.litecoin_price)
-        diction["tether"] = float(self.tether_price)
-        diction["tezos"] = float(self.tezos_price)
-        diction["monero"] = float(self.monero_price)
-        diction["eos"] = float(self.eos_price)
-        diction["binancecoin"] = float(self.binancecoin_price)
+        for currency in currencies:
+            diction[currency] = float(getattr(self, currency+"_price"))
+        #diction["ethereum"] = float(self.ethereum_price)
+        #diction["ripple"] = float(self.ripple_price)
+        #diction["litecoin"] = float(self.litecoin_price)
+        #diction["tether"] = float(self.tether_price)
+        #diction["tezos"] = float(self.tezos_price)
+        #diction["monero"] = float(self.monero_price)
+        #diction["eos"] = float(self.eos_price)
+        #diction["binancecoin"] = float(self.binancecoin_price)
         return json.dumps(diction)
 
