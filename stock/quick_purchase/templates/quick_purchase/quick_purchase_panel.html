@@ -23,7 +23,7 @@
             <div class="col-sm-5 pl-2 form-group">
                 <select name="buy_currency" class="form-control" id="id_buy_currency">
                     {% for currency in currencies %}
-                    <option value="{{ currency.symbol }}">{{ currency.symbol|upper }}</option>
+                    <option value="{{ currency.id }}">{{ currency.symbol|upper }}</option>
                     {% endfor %}
                 </select>
                 <!--{{ quick_buy_form.buy_currency|attr:"class:form-control" }}!-->
@@ -36,7 +36,7 @@
             <div class="form-group col-sm-5 pl-2">
                 <select name="pay_currency" class="form-control" id="id_pay_currency">
                     {% for available_currency in available_currency_set %}
-                    <option value="{{ available_currency }}">{{ available_currency|upper }}</option>
+                    <option value="{{ available_currency.id }}">{{ available_currency.symbol|upper }}</option>
                     {% endfor %}
                 </select>
                 <!--{{ quick_buy_form.pay_currency|attr:"class:form-control" }}!-->

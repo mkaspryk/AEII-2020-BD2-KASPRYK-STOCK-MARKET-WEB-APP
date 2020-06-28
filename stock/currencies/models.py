@@ -1,5 +1,6 @@
 from django.db import models
 from currencies.app_settings import currencies
+from decimal import Decimal, ROUND_HALF_UP
 import json
 
 class Currency(models.Model):
@@ -12,6 +13,10 @@ class Currency(models.Model):
     low_24h = models.DecimalField(max_digits=20, decimal_places=2)
     price_change_24h = models.DecimalField(max_digits=20, decimal_places=2)
     price_change_percentage_24h = models.FloatField()
+
+    def convert_amount_to(self, amount, target_currency):
+        ratio = self.current_price / target_currency.current_price
+        return (amount * ratio).quantize(Decimal('0.00000001'), rounding=ROUND_HALF_UP)
 
 
 class PriceTimeStamp(models.Model):

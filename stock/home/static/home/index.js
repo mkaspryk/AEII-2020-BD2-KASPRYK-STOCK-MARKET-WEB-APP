@@ -2,6 +2,11 @@ var barCount = 60;
 var initialDateStr = '01 Apr 2020 00:00 Z';
 function initChart(chartName, label){
 	var ctx = document.getElementById(chartName).getContext('2d');
+	console.log(window.innerWidth)
+	console.log(window.innerHeight)
+	ctx.canvas.width=window.innerWidth;
+	ctx.canvas.height=window.innerHeight;
+	console.log(ctx)
 	var chart = new Chart(ctx, {
 		type: 'candlestick',
 		data: {

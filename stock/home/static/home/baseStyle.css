@@ -1,5 +1,3 @@
-
-
 html,
 body {
   height: 100%;
@@ -52,11 +50,6 @@ body {
 body {
   background: #1e2833;
   background: linear-gradient(to right, #1e2833, #0099ff);
-}
-
-.row{
-    margin-right: -15px;
-    margin-left: -15px;
 }
 
 #page-content {

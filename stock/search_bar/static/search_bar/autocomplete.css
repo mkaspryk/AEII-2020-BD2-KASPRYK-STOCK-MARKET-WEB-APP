@@ -8,6 +8,7 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  width:100%;
 }
 input {
   border: 1px solid transparent;
@@ -50,9 +51,13 @@ input[type=submit] {
   color: #ffffff;
 }
 
+#search-bar-form{
+  width:100%;
+}
+
 .search{
   position: relative;
-  color: #aaa;
+  color: #6f7a85;
   font-size: 16px;
 }
 
@@ -68,4 +73,10 @@ input[type=submit] {
   left:24px;
 }
 
+#crypto_input{
+    width:100%;
+}
 
+#search-div{
+  margin-left: -12px;
+}

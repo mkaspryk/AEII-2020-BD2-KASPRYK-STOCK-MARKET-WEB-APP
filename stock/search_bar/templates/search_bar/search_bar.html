@@ -1,12 +1,12 @@
 <!-- change to POST -->
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'search_bar/autocomplete.css' %}" />
-<form class="form-inline mx-auto" method="GET" autocomplete="off" action="{% url 'crypto_stock' %}">
+<form class="form-inline" id="search-bar-form" method="GET" autocomplete="off" action="{% url 'crypto_stock' %}">
     {% csrf_token %}
     <div class="autocomplete">
         <div class="search">
             <span class="fa fa-search"></span>
-            <input id="crypto_input" type="search" name="selected_crypto" placeholder="Search for BTC, Ethereum, ..." style="width:400px;">
+            <input id="crypto_input" type="search" name="selected_crypto" placeholder="Search for BTC, Ethereum, ...">
         </div>
     </div>
 </form>

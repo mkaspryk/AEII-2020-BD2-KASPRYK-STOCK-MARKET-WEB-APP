@@ -21,54 +21,59 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="col-sm form-inline">
-        <a class="navbar-brand" id="main-logo" href="{% url 'index' %}">Stock Masters</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item navbar-text"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                <li class="nav-item navbar-text"><a class="nav-link" href="{% url 'crypto_stock'%}">Crypto</a></li>
-            </ul>
+<div class="container col-10">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="col-sm-3 form-inline" id="search-div">
+            {% include 'search_bar/search_bar.html' %}
         </div>
-    </div>
-    <div class="col-sm form-inline">
-        {% include 'search_bar/search_bar.html' %}
-    </div>
-    <div class="col-sm form-inline">
-        <div class="ml-auto">
-            {% if user.is_authenticated %}
-                <form class="form-inline">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link navbar-text" href="{% url 'portfolio' %}"> <i class='far'>&#xf007;</i> {{user.username}} </a></li>
-                        <li class="nav-item active">
-                            <a class="nav-link navbar-text" id="logout_button" href="{% url 'logout' %}"> Log out </a>
-                        </li>
-                    </ul>
-                </form>
-            {% else %}
-                <form class="form-inline">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link navbar-text" id="login_button" href="{% url 'login' %}"> Log in <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link navbar-text" href="{% url 'register' %}"> Register <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                </form>
-            {% endif %}
+        <div class="col-sm form-inline">
+            <a class="navbar-brand" id="main-logo" href="{% url 'index' %}">Stock Masters</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item navbar-text"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item navbar-text"><a class="nav-link" href="{% url 'crypto_stock'%}">Crypto</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+
+        <div class="col-sm form-inline">
+            <div class="ml-auto">
+                {% if user.is_authenticated %}
+                    <form class="form-inline">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active"><a class="nav-link navbar-text" href="{% url 'portfolio' %}"> <i class='far'>&#xf007;</i> {{user.username}} </a></li>
+                            <li class="nav-item active">
+                                <a class="nav-link navbar-text" id="logout_button" href="{% url 'logout' %}"> Log out </a>
+                            </li>
+                        </ul>
+                    </form>
+                {% else %}
+                    <form class="form-inline">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link navbar-text" id="login_button" href="{% url 'login' %}"> Log in <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link navbar-text" href="{% url 'register' %}"> Register <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>
 {% block body %}Error loading body.{% endblock %}
+<div class="container col-10">
 <footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
     <div class="container text-center">
         <small>Copyright &copy; StockMasters.com</small>
     </div>
 </footer>
+</div>
 <script type="text/javascript" src="{% static 'search_bar/autocomplete.js' %}"></script>
 <script type="text/javascript" src="{% static "login/logout_popup.js" %}"></script>
 <script>logout_popup_handling()</script>

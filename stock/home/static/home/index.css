@@ -1,0 +1,10 @@
+.chart-box{
+    background-color: white;
+    position: relative;
+    height:246px;
+}
+
+.chart{
+    position:relative;
+    height:100%;
+}

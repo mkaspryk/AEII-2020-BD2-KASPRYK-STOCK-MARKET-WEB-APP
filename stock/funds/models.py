@@ -1,19 +1,18 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from portfolio.models import UserWallet
 from currencies.models import Currency
 from decimal import Decimal, ROUND_HALF_UP
 
 
-@receiver(post_save, sender=UserWallet)
+@receiver(post_save, sender='portfolio.UserWallet')
 def add_initial_funds(sender, instance, created, **kwargs):
     if created:
         Fund.objects.create(owner=instance, currency=Currency.objects.get(id="bitcoin"), amount=1.00)
 
 
 class Fund(models.Model):
-    owner = models.ForeignKey(UserWallet, on_delete=models.DO_NOTHING)
+    owner = models.ForeignKey('portfolio.UserWallet', on_delete=models.DO_NOTHING)
     currency = models.ForeignKey('currencies.Currency', on_delete=models.DO_NOTHING)
     amount = models.DecimalField(max_digits=20, decimal_places=2)
 
