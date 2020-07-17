@@ -5,6 +5,10 @@ source .venv/bin/activate
 
 # run server
 #x-terminal-emulator -e "python3 ./stock/manage.py runserver" 
+python3 ./stock/manage.py makemigrations
+python3 ./stock/manage.py migrate --database=local
+python3 ./stock/manage.py migrate --database=remote
+python3 ./stock/manage.py fetcher_command
 python3 ./stock/manage.py runserver
 
 # wait for the server to start
