@@ -20,3 +20,5 @@ source .venv/bin/activate
 
 # install all required packages
 pip install -r ./requirements.txt
+
+
