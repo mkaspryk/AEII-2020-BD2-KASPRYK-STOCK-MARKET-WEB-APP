@@ -11,10 +11,10 @@
   <tbody>
   {% for currency in currencies %}
     <tr class="currency-price-row">
-      <td><img class="crypto-icon-medium" src="/static/currencies/crypto_icons/{{ currency.id }}.webp" alt="error"/></td>
+      <td><img class="crypto-icon-medium" src="/static/currencies/crypto_icons/{{ currency.name }}.webp" alt="error"/></td>
       <td style="font-weight: bold">{{ currency.symbol|upper }}</td>
-      <td id="{{ currency.id }}_price" class="text-right">{{ currency.current_price }}</td>
-      <td id="{{ currency.id }}_price_change_percentage_24h" class="text-right">{{ currency.price_change_percentage_24h|floatformat:3 }}%</td>
+      <td id="{{ currency.name }}_price" class="text-right">{{ currency.current_price }}</td>
+      <td id="{{ currency.name }}_price_change_percentage_24h" class="text-right">{{ currency.price_change_percentage_24h|floatformat:3 }}%</td>
     </tr>
   {% endfor %}
   </tbody>

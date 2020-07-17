@@ -1,4 +1,4 @@
-from currencies.models import Currency, PriceTimeStamp
+from currencies.models import Currency
 
 def extras(request):
     currencies = Currency.objects.all()

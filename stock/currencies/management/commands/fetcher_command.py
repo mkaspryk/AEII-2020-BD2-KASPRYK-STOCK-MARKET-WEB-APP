@@ -9,7 +9,7 @@ import requests
 import urllib
 import json
 from django.core.management.base import BaseCommand, CommandError
-from currencies.models import PriceTimeStamp, Currency
+from currencies.models import Currency
 from currencies.app_settings import currencies
 
 base_url = "https://api.coingecko.com/api/v3/coins/markets?"
@@ -34,8 +34,8 @@ class Command(BaseCommand):
         price_timestamp = {}
         for row in fetched_data:
             curr = None
-            if Currency.objects.filter(id=row['id']).exists():
-                curr = Currency.objects.get(id=row['id'])
+            if Currency.objects.filter(name=row['id']).exists():
+                curr = Currency.objects.get(name=row['id'])
                 curr.symbol = row['symbol']
                 curr.current_price = row['current_price']
                 curr.market_cap = row['market_cap']
@@ -46,7 +46,7 @@ class Command(BaseCommand):
                 curr.price_change_percentage_24h = row['price_change_percentage_24h']
             else:  # creates new record
                 curr = Currency(
-                    id=row['id'],
+                    name=row['id'],
                     symbol=row['symbol'],
                     current_price=row['current_price'],
                     market_cap=row['market_cap'],
@@ -57,18 +57,18 @@ class Command(BaseCommand):
                     price_change_percentage_24h=row['price_change_percentage_24h']
                 )
             curr.save()
-            price_timestamp[curr.id] = curr.current_price
+            price_timestamp[curr.name] = curr.current_price
         prices = json.dumps(price_timestamp)
         self.stdout.write(prices)
-        PriceTimeStamp(
-            bitcoin_price=price_timestamp['bitcoin'],
-            ethereum_price=price_timestamp['ethereum'],
-            ripple_price=price_timestamp['ripple'],
-            litecoin_price=price_timestamp['litecoin'],
-            tether_price=price_timestamp['tether'],
-            tezos_price=price_timestamp['tezos'],
-            monero_price=price_timestamp['monero'],
-            eos_price=price_timestamp['eos'],
-            binancecoin_price=price_timestamp['binancecoin'],
-        ).save()
+        # PriceTimeStamp(
+        #     bitcoin_price=price_timestamp['bitcoin'],
+        #     ethereum_price=price_timestamp['ethereum'],
+        #     ripple_price=price_timestamp['ripple'],
+        #     litecoin_price=price_timestamp['litecoin'],
+        #     tether_price=price_timestamp['tether'],
+        #     tezos_price=price_timestamp['tezos'],
+        #     monero_price=price_timestamp['monero'],
+        #     eos_price=price_timestamp['eos'],
+        #     binancecoin_price=price_timestamp['binancecoin'],
+        # ).save()
 

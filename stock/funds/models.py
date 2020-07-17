@@ -8,7 +8,7 @@ from decimal import Decimal, ROUND_HALF_UP
 @receiver(post_save, sender='portfolio.UserWallet')
 def add_initial_funds(sender, instance, created, **kwargs):
     if created:
-        Fund.objects.create(owner=instance, currency=Currency.objects.get(id="bitcoin"), amount=1.00)
+        Fund.objects.create(owner=instance, currency=Currency.objects.get(name="bitcoin"), amount=1.00)
 
 
 class Fund(models.Model):

@@ -11,8 +11,8 @@ function format_percentage(price_change){
 function refresh_prices() {
     $.getJSON('/currencies/prices.json/', function (data) {
         $.each(data, function(){
-            $("#"+this.id+"_price").html(format(this.current_price))
-            let price_change = $("#"+this.id+"_price_change_percentage_24h")
+            $("#"+this.name+"_price").html(format(this.current_price))
+            let price_change = $("#"+this.name+"_price_change_percentage_24h")
             price_change.html(format_percentage(this.price_change_percentage_24h))
             if(this.price_change_percentage_24h < 0.0){
                 price_change.css('color', 'red')
