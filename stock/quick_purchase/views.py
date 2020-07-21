@@ -23,5 +23,4 @@ def perform_quick_buy(request):
         else:
             print("niewyplacalny")
         # TODO transaction
-    #return HttpResponse('')
-    return render(request, 'portfolio/portfolio.html', context={"balance": request.user.userwallet.calculate_balance(), "funds": request.user.userwallet.fund_set.all(), 'guild': request.user.guildmember.guild})
+    return HttpResponse('')
