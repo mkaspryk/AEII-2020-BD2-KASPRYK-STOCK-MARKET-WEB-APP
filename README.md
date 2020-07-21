@@ -17,6 +17,10 @@ Uruchomienie na Linux OS
 4. Aby włączyć serwer, użyj komendy `./runserver_linux.sh`
 5. Wejdź na http://localhost:8000
 
+Dodatkowo: jeśli chcesz, aby ceny kryptowalut były odświeżane dynamicznie, dodaj wpis do crontaba, który co minutę uruchomi komendę `fetcher_command`:
+
+`* * * * * {sciezka_projektu}/.venv/bin/python {sciezka_projektu}/stock/manage.py fetcher_command > /tmp/cronlog.txt 2>&1`
+
 Uruchomienie na Windows OS
 ------------------
 UWAGA! Zainstalowanie Dockera, koniecznego do uruchomienia serwera, możliwe jest tylko na wersjach Enterprise i Professional Windowsa 10.

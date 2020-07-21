@@ -10,6 +10,7 @@ fi
 # install pip and venv
 apt update
 apt install --upgrade python3-pip python3-venv
+apt install libmysqlclient-dev
 
 # create virtualenv '.venv'
 python3 -m venv .venv
@@ -19,3 +20,5 @@ source .venv/bin/activate
 
 # install all required packages
 pip install -r ./requirements.txt
+
+
