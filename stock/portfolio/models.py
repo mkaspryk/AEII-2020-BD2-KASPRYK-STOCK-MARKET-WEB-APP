@@ -30,12 +30,11 @@ class UserWallet(models.Model):
         try:
             with transaction.atomic('remote'):
                 pay_fund = self.fund_set.get(currency=pay_currency)
-                new_amount = pay_fund.amount - pay_amount
-                pay_fund.amount = new_amount
+                pay_fund.amount = pay_fund.amount - pay_amount
                 pay_fund.save()
                 if self.fund_set.filter(currency=buy_currency).exists():
                     buy_fund = self.fund_set.get(currency=buy_currency)
-                    buy_fund.amount = new_amount
+                    buy_fund.amount = buy_fund.amount + buy_amount
                     buy_fund.save()
                 else:
                     funds.models.Fund(owner=self, currency=buy_currency, amount=buy_amount).save()
