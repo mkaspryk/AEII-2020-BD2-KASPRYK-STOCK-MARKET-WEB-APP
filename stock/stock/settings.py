@@ -38,11 +38,9 @@ INSTALLED_APPS = [
     'search_bar',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
-    'side_panel',
+    'main_panel',
     'register',
     'channels_redis',
-    'userArea',
-    'adminArea',
     'quick_purchase',
 ]
 
