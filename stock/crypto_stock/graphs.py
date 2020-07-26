@@ -58,7 +58,7 @@ def return_app(crypto_symbol=None):
         crypto_symbol = 'BTC'
     refresh_data(crypto_symbol, 'hour')
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-    app = DjangoDash('SimpleExample', external_stylesheets=external_stylesheets)
+    app = DjangoDash('CryptoGraph', external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         html.H1(children=crypto_symbol + ' history',
