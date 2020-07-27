@@ -1,5 +1,43 @@
 {% extends 'main_panel/main_panel.html' %}
 {% block content %}
 {% load static %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+  <div class="container mt-3">
+    <h2>Guild list</h2>
+      <div style="width: 20%; margin: 0; float: right">
+        <button type="button" class="btn btn-primary">New Guild</button>
+      </div>
+      <div style="width: 80%; margin: 0; float: left">
+        <input class="form-control" id="myInput" type="text" placeholder="Search.." >
+      </div>
+    <br>
+    <br>
+    <div style="width: 100%">
+      <ul class="list-group" id="myList">
+        <li class="list-group-item">First item</li>
+        <li class="list-group-item">Second item</li>
+        <li class="list-group-item">Third item</li>
+        <li class="list-group-item">Fourth</li>
+      </ul>
+    </div>
+  </div>
 
+  <script>
+  $(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  });
+  </script>
 {% endblock  %}
