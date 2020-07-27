@@ -19,26 +19,25 @@
 
     }
     </style>
-
-  <div class="{% plotly_class name='CryptoGraph' %} card" style="background-color: rgba(255,255,255,0)">
-    {% plotly_app name='CryptoGraph' ratio=1 %}
-  </div>
-  <div class="row" align="center">
-        <div class="column" align="center">
-          <form class="form-inline" method="GET">
-              {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="USD.." aria-label="Search" name='crypto_buy'>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color: #4CAF50">BUY</button>
-          </form>
-        </div>
-        <div class="column" align="center">
-          <form class="form-inline" method="GET">
-              {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Crypto.." aria-label="Search" name='crypto_sell'>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color:#f44336">SELL</button>
-          </form>
-        </div>
+  <body style="margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;">
+    <div class="{% plotly_class name='CryptoGraph' %} card" style="background-color: white">
+      {% plotly_app name='CryptoGraph' ratio=1 %}
     </div>
-
-
+    <div class="row" align="center">
+      <div class="column" align="center">
+        <form class="form-inline" method="GET">
+            {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="USD.." aria-label="Search" name='crypto_buy'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color: #4CAF50">BUY</button>
+        </form>
+      </div>
+      <div class="column" align="center">
+        <form class="form-inline" method="GET">
+            {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="Crypto.." aria-label="Search" name='crypto_sell'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:#fffffd; background-color:#f44336">SELL</button>
+        </form>
+      </div>
+    </div>
+  </body>
 {% endblock %}

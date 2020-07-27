@@ -16,11 +16,12 @@ y_data_box_high = []
 app = None
 
 colors = {
-    'background': '#27293d',
-    'text': '#ffffff'
+    'background': 'white',
+    'text': '#ffffff',
+    'crypto-text': '#101010',
 }
 
-history_precision = ['minute', 'hour', 'day']
+history_precisions = ['minute', 'hour', 'day']
 
 
 def refresh_data(crypto_symbol, history_precision):
@@ -57,22 +58,22 @@ def return_app(crypto_symbol=None):
     if(crypto_symbol == '' or crypto_symbol is None):
         crypto_symbol = 'BTC'
     refresh_data(crypto_symbol, 'hour')
-    external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-    app = DjangoDash('CryptoGraph', external_stylesheets=external_stylesheets)
+    app = DjangoDash('CryptoGraph')
 
-    app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+    app.layout = html.Div(style={'backgroundColor': colors['background'], 'margin-left': '0px',
+    'margin-top': '0px', 'margin-right': '0px', 'margin-bottom': '0px'}, children=[
         html.H1(children=crypto_symbol + ' history',
                 style={
-                    'padding': '20px',
-                    'textAlign': 'left',
-                    'color': colors['text']
+                    'textAlign': 'top',
+                    'color': colors['crypto-text'],
+                    'margin-top': '0px',
                 }
                 ),
 
         dcc.Graph(
             id='slider-graph',
             animate=True,
-            style={"backgroundColor": "#1a2d46", 'color': '#ffffff'},
+            style={"backgroundColor": colors['background'], 'color': '#ffffff'},
             figure={
                 'data': [],
                 'layout': {
@@ -80,6 +81,7 @@ def return_app(crypto_symbol=None):
                     'paper_bgcolor': colors['background'],
                     'font': {
                         'color': colors['text']
+
                     }
                 }
             }
@@ -87,9 +89,9 @@ def return_app(crypto_symbol=None):
 
         dcc.RadioItems(
             id='mode-radio',
-            options=[{'label': value, 'value': value} for value in history_precision],
+            options=[{'label': value, 'value': value} for value in history_precisions],
             value='hour',
-            style={"color": colors['text'], "padding": "20px"}
+            style={"color": colors['crypto-text'], "padding": "20px"}
         ),
     ])
 

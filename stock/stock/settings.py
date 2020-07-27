@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'register',
     'channels_redis',
     'quick_purchase',
+    'crypto_guilds'
 ]
 
 CHANNEL_LAYERS = {
