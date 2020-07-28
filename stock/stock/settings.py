@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crypto_guilds',
     'guild_creation',
     'guild_preview',
+    'adminArea'
 ]
 
 CHANNEL_LAYERS = {
