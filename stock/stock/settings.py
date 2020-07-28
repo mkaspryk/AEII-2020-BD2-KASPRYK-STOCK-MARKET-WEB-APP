@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'register',
     'channels_redis',
     'quick_purchase',
-    'crypto_guilds'
+    'crypto_guilds',
+    'guild_creation',
+    'guild_preview',
 ]
 
 CHANNEL_LAYERS = {
