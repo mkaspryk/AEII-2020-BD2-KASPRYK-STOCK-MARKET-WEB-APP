@@ -13,5 +13,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('', include('crypto_guilds.urls')),
+    path('', include('guild_creation.urls')),
     path('', include('adminArea.urls'))
 ]
