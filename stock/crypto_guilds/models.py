@@ -13,5 +13,5 @@ class Guild(models.Model):
     score = models.FloatField()
     money = models.DecimalField(max_digits=20,decimal_places=2, blank = False)
 
-    def __str__():
+    def __str__(self):
         return self.name
