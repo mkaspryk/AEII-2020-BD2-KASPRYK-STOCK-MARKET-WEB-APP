@@ -12,9 +12,3 @@ class Guild(models.Model):
     max_members = models.IntegerField(blank = False, validators=[MaxValueValidator(50),MinValueValidator(1)])
     score = models.IntegerField()
     money = models.DecimalField(max_digits=20,decimal_places=2, blank = False)
-<<<<<<< HEAD
-=======
-
-    def __str__(self):
-        return self.name
->>>>>>> b9016d114d84d017050e345ab5e972e86a4bc706
