@@ -14,5 +14,7 @@ def guild_creation(request):
     if request.method == 'POST':
         form = GuildForm(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, template_name, {'form': form, 'text': text})
+            instance = form.save(commit = False)
+            instance.master = request.user
+            instance.save()
+            return render(request, template_name, {'form': form})
