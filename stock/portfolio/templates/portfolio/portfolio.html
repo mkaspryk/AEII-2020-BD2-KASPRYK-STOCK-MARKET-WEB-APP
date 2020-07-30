@@ -12,7 +12,7 @@
         if(balance > 0){
             $('#wallet-balance').css('color', 'green')
         } else {
-            $('#wallet-balance').css('color', 'green')
+            $('#wallet-balance').css('color', 'red')
         }
         $('#wallet-balance-amount').html(balance.toFixed(2))
     </script>
@@ -26,7 +26,7 @@
                   <div class="col-sm-2"> {{ fund.currency.name }} </div>
                   <div class="col-sm-2"> {{ fund.amount }} </div>
                   <div class= col-sm-2 >
-                      <button class="btn btn-secondary">Sell</button>
+                      <button class="btn btn-secondary" onclick="window.location.href='/portfolio/sell/{{fund.currency.id}}'" >Sell</button>
                   </div>
               </div>
               {% endfor %}
