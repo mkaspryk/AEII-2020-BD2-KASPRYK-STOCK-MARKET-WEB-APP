@@ -9,6 +9,7 @@ def portfolio(request):
 	if request.user.is_authenticated:
 		wallet = request.user.userwallet
 		funds = wallet.fund_set.all()
-		return render(request, 'portfolio/portfolio.html', context={"balance": wallet.calculate_balance(), "funds": funds})
+		guild = request.user.guildmember.guild
+		return render(request, 'portfolio/portfolio.html', context={"balance": wallet.calculate_balance(), "funds": funds, 'guild': guild})
 	else:
 		return HttpResponseNotFound("wyjazd stad kurw a")

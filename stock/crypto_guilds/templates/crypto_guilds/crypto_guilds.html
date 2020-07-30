@@ -21,10 +21,16 @@
     <br>
     <div style="width: 70%">
       <ul class="list-group" id="myList">
-        <li class="list-group-item">First item</li>
-        <li class="list-group-item">Second item</li>
-        <li class="list-group-item">Third item</li>
-        <li class="list-group-item">Fourth</li>
+        {% for guild in guilds %}
+          <li class="list-group-item">
+              {{ guild.guild_name }}
+              {% csrf_token %}
+              <form method="post">
+                {% csrf_token %}
+                <button type="submit" value={{guild.guild_name}}>Join Guild</button>
+              </form>
+          </li>
+        {% endfor %}
       </ul>
     </div>
   </div>

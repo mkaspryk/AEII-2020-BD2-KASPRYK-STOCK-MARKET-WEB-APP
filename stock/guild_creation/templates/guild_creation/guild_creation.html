@@ -3,9 +3,13 @@
 <div class="container">
   <h1 style="float: middle"> Guild Creation </h1>
   <form method="post">
+    {% if form is None %}
+      <h2>Guild creation completed {{guild}}</h2
+    {% else %}
     {% csrf_token %}
     {{ form.as_ul }}
-    <button type="submit">Create Guild</button>
+      <button type="submit">Create Guild</button>
+    {% endif %}
   </form>
 </div>
 

@@ -17,4 +17,6 @@ def guild_creation(request):
             instance = form.save(commit = False)
             instance.master = request.user
             instance.save()
-            return render(request, template_name, {'form': form})
+            request.user.guildmember.guild = instance
+            request.user.save()
+            return render(request, template_name, {'guild' : request.user.guildmember.guild.id})

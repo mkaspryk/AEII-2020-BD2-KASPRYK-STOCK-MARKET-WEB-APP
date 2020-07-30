@@ -190,3 +190,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
 ]
+
+AUTH_PROFILE_MODULE = 'stock.UserProfile'
