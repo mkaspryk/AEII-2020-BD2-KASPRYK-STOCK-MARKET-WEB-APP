@@ -9,10 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
-  <div class="container mt-3">
+  <div class="container mt-3" style="background-color: #1e2833; color: white;margin: auto; margin-bottom: 15px;">
     <h2>Guild list</h2>
-      <div style="width: 20%; margin: 0; float: right">
-        <a class="btn" href="{% url 'guild_creation' %}">New Guild</a>
+      <div style="width: 9%; margin: 0; float: right;background-color: tomato;">
+        <a class="btn" style="color: white;" href="{% url 'guild_creation' %}">New Guild</a>
       </div>
       <div style="width: 70%; margin: 0; float: left">
         <input class="form-control" id="myInput" type="text" placeholder="Search.." >
@@ -22,12 +22,12 @@
     <div style="width: 70%">
       <ul class="list-group" id="myList">
         {% for guild in guilds %}
-          <li class="list-group-item">
+          <li class="list-group-item bg-dark">
               {{ guild.guild_name }}
               {% csrf_token %}
               <form method="post">
                 {% csrf_token %}
-                <button type="submit" value={{guild.guild_name}}>Join Guild</button>
+                <button type="submit" style="background-color: tomato; color: white;" value={{guild.guild_name}}>Join Guild</button>
               </form>
           </li>
         {% endfor %}

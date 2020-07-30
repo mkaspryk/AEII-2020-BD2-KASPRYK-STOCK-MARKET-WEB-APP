@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolioStyle.css' %}" />
-<div class="portfolio-dark portfolio-stocks-panel-dark card-body" style="margin-top: 10px;">
+<div class="portfolio-dark portfolio-stocks-panel-dark card-body" style="background-color: #1e2833;">
     <h1 class = "portfolio-stocks-balance-title-dark card-title">Your balance: </h1>
     <h2 class="card-text mx-auto portfolio-stocks-balance-text-dark" style="width: 200px; padding-top: 50px;">
         <span id="wallet-balance">$<span id = "wallet-balance-amount">{{ balance }}</span></span>
@@ -17,7 +17,7 @@
         $('#wallet-balance-amount').html(balance.toFixed(2))
     </script>
 </div>
-  <div class="portfolio-stocks-panel-dark card-body" style="width: 60%; float: left">
+  <div class="portfolio-stocks-panel-dark card-body" style="width: 60%; height: 61%; float: left; background-color: #1e2833;">
       <h1 class="portfolio-stocks-balance-title-dark  card-title"> Your stocks: </h1>
       <ul class="list-group">
           <li class="list-group-item portfolio-stocks-list-item-dark">
@@ -33,8 +33,8 @@
           </li>
       </ul>
   </div>
-  <div class="portfolio-stocks-panel-dark card-body" style="width: 40%; float: left">
-      <h1 class="portfolio-stocks-balance-title-dark  card-title"> Your Guild: </h1>
+  <div class="portfolio-stocks-panel-dark card-body" style="width: 40%; height: 61%;  float: left; background-color: #1e2833;">
+      <h1 class="portfolio-stocks-balance-title-dark card-title"> Your Guild: </h1>
       <dl>
           <li class="list-group-item portfolio-stocks-list-item-dark">
             {% if guild is not None%}

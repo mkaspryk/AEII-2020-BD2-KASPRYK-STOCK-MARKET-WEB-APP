@@ -1,6 +1,6 @@
 {% extends 'main_panel/main_panel.html' %}
 {% block content %}
-<div class="container">
+<div class="container" style="background-color: #1e2833; color: white;">
   <h1 style="float: middle"> Guild Creation </h1>
   <form method="post">
     {% if form is None %}
@@ -8,7 +8,7 @@
     {% else %}
     {% csrf_token %}
     {{ form.as_ul }}
-      <button type="submit">Create Guild</button>
+      <button type="submit" style="background-color: tomato;color: white; margin: 20px;">Create Guild</button>
     {% endif %}
   </form>
 </div>

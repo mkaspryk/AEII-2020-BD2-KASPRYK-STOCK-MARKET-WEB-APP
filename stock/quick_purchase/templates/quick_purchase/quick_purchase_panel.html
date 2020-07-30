@@ -5,7 +5,7 @@
 <div class="container-fluid" id="quick-buy-panel">
     <form id="quick-buy-form" method="post" action="/perform_quick_buy/">
         {% csrf_token %}
-        <div class="row mb-2">
+        <div class="row mb-2 d-flex">
             <div class="col-sm-7" id="quick-buy-text">Quick buy:</div>
             <div class="col-sm-5 text-right">
                 <span id="balance-field">
@@ -15,7 +15,7 @@
                 </span>
             </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters d-flex">
             <div class="col-sm-7 form-group">
                 <!--<input type="text" name="buy_amount" maxlength="30" placeholder="Buying..." class="form-control" required id="id_buy_amount">!-->
                 {{ quick_buy_form.buy_amount|attr:"class:form-control"|attr:"placeholder:Buying..."}}
@@ -29,12 +29,12 @@
                 <!--{{ quick_buy_form.buy_currency|attr:"class:form-control" }}!-->
             </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters d-flex">
             <div class="form-group col-sm-7">
                 <!--{{ quick_buy_form.pay_amount|attr:"class:form-control"|attr:"placeholder:Paying..." }}!-->
                 <input type="submit" class="form-control" id="exampleFormControlInput2" value="PAY WITH:">
             </div>
-            <div class="form-group col-sm-5 pl-2">
+            <div class="form-group col-sm-5 pl-2 d-flex">
                 <select name="pay_currency" class="form-control" id="id_pay_currency">
                     {% for available_currency in available_currency_set %}
                     <option value="{{ available_currency.name }}">{{ available_currency.symbol|upper }}</option>
