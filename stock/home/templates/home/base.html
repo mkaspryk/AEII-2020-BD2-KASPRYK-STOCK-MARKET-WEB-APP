@@ -22,12 +22,12 @@
 
 <body>
 <div class="container col-10">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="col-sm-3 form-inline" id="search-div">
             {% include 'search_bar/search_bar.html' %}
         </div>
         <div class="col-sm form-inline">
-            <a class="navbar-brand" id="main-logo" href="{% url 'index' %}">Stock Masters</a>
+            <a class="navbar-brand" id="main-logo" href="{% url 'index' %}" style = "color: #FFFFFF">Stock Masters</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="col-sm form-inline">
+        <div class="col-sm form-inline d-flex ">
             <div class="ml-auto">
                 {% if user.is_authenticated %}
                     <form class="form-inline">
@@ -71,7 +71,7 @@
 </div>
 {% block body %}Error loading body.{% endblock %}
 <div class="container col-10">
-<footer id="sticky-footer" class="py-4 text-white-50" style="background-color: #1e2833;">
+<footer id="sticky-footer" class="py-4 text-white-50 bg-dark">
     <div class="container text-center">
         <small>Copyright &copy; StockMasters.com</small>
     </div>

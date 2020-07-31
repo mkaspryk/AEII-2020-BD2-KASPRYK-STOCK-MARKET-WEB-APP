@@ -41,6 +41,16 @@ class UserWallet(models.Model):
         except:
             raise
 
+    @transaction.atomic('remote')
+    def perform_sell_transaction(self, pay_amount, pay_currency):
+        try:
+            with transaction.atomic('remote'):
+                pay_fund = self.fund_set.get(currency=pay_currency)
+                pay_fund.amount = pay_fund.amount - pay_amount
+                pay_fund.delete()
+        except:
+            raise
+
 
 @receiver(post_save, sender=User)
 def create_user_wallet(sender, instance, created, **kwargs):

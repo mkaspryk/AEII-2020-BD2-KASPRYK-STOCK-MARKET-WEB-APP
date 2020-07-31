@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from decimal import Decimal
@@ -22,4 +23,5 @@ def perform_quick_buy(request):
         else:
             print("niewyplacalny")
         # TODO transaction
-    return HttpResponse('')
+    #return HttpResponse('')
+    return render(request, 'portfolio/portfolio.html', context={"balance": request.user.userwallet.calculate_balance(), "funds": request.user.userwallet.fund_set.all(), 'guild': request.user.guildmember.guild})
