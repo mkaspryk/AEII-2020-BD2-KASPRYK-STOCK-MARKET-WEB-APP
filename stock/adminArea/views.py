@@ -7,7 +7,12 @@ import time
 # Create your views here.
 
 def adminArea(request):
-	return render(request, 'adminArea.html', {})
+    username = request.POST['username']
+    user = User.objects.get(username=username)
+    if(user.is_superuser==true)
+	    return render(request, 'adminArea.html', {})
+    else:
+        return render(request, 'AccessDenied.html',{})
 
 def set_admin(request):
     if request.method == "POST":
