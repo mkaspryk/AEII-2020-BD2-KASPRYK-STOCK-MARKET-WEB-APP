@@ -16,9 +16,9 @@ y_data_box_high = []
 app = None
 
 colors = {
-    'background': 'white',
+    'background': '#1e2833',
     'text': '#ffffff',
-    'crypto-text': '#101010',
+    'crypto-text': '#ffffff',
 }
 
 history_precisions = ['minute', 'hour', 'day']
@@ -64,9 +64,9 @@ def return_app(crypto_symbol=None):
     refresh_data(crypto_symbol, 'hour')
     app = DjangoDash('CryptoGraph')
 
-    app.layout = html.Div(style={'backgroundColor': colors['background'], 'margin-left': '0px',
+    app.layout = html.Div(style={'color': 'white', 'backgroundColor': colors['background'], 'margin-left': '0px',
     'margin-top': '0px', 'margin-right': '0px', 'margin-bottom': '0px'}, children=[
-        html.H1(children=crypto_symbol + ' history',
+        html.H1(children=crypto_symbol + ' HISTORY',
                 style={
                     'textAlign': 'top',
                     'color': colors['crypto-text'],
@@ -95,7 +95,7 @@ def return_app(crypto_symbol=None):
             id='mode-radio',
             options=[{'label': value, 'value': value} for value in history_precisions],
             value='hour',
-            style={"color": colors['crypto-text'], "padding": "20px"}
+            style={"color": colors['crypto-text'], "padding": "0px"}
         ),
     ])
 
@@ -122,7 +122,7 @@ def return_app(crypto_symbol=None):
         ))
 
         layout = go.Layout(
-            paper_bgcolor='#27293d',
+            paper_bgcolor='#1e2833',
             plot_bgcolor='rgba(0,0,0,0)',
             xaxis=dict(range=[min(x_data), max(x_data)]),
             yaxis=dict(range=[min(y_data_box_open), max(y_data_box_open)]),
