@@ -36,8 +36,10 @@ def refresh_data(crypto_symbol, history_precision):
         elif history_precision == 'day':
             data = api_handler.get_daily_history(crypto_symbol, 'USD', 100)
     except KeyError:
-        # TODO handling KeyError from python form
-        return
+        crypto_symbol = "BTC"
+        data = api_handler.get_hourly_history(crypto_symbol, 'USD', 200)
+    return crypto_symbol
+
     x_data.clear()
     y_data_box_open.clear()
     y_data_scatter.clear()
@@ -57,7 +59,7 @@ def return_app(crypto_symbol=None):
     global app
     if(crypto_symbol == '' or crypto_symbol is None):
         crypto_symbol = 'BTC'
-    refresh_data(crypto_symbol, 'hour')
+    crypto_symbol = refresh_data(crypto_symbol, 'hour')
     app = DjangoDash('CryptoGraph')
 
     app.layout = html.Div(style={'backgroundColor': colors['background'], 'margin-left': '0px',
