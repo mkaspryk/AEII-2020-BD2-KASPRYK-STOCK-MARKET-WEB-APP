@@ -24,10 +24,10 @@
         {% for guild in guilds %}
           <li class="list-group-item">
               {{ guild.guild_name }}
-              {% csrf_token %}
               <form method="post">
                 {% csrf_token %}
-                <button type="submit" value={{guild.guild_name}}>Join Guild</button>
+                <input type="hidden" name="guild_name" value="{{guild.guild_name}}">
+                <input type="submit" value="Join Guild">
               </form>
           </li>
         {% endfor %}
