@@ -36,10 +36,9 @@ def refresh_data(crypto_symbol, history_precision):
         elif history_precision == 'day':
             data = api_handler.get_daily_history(crypto_symbol, 'USD', 100)
     except KeyError:
-        return
-        #     crypto_symbol = "BTC"
-        #     data = api_handler.get_hourly_history(crypto_symbol, 'USD', 200)
-        # return crypto_symbol
+        crypto_symbol = "BTC"
+        data = api_handler.get_hourly_history(crypto_symbol, 'USD', 200)
+
 
     x_data.clear()
     y_data_box_open.clear()
@@ -54,14 +53,15 @@ def refresh_data(crypto_symbol, history_precision):
         y_data_box_low.append(float(dictionary['low']))
         y_data_box_high.append(float(dictionary['high']))
         y_data_scatter.append(dictionary['open'])
+    return crypto_symbol
 
 
 def return_app(crypto_symbol=None):
     global app
     if(crypto_symbol == '' or crypto_symbol is None):
         crypto_symbol = 'BTC'
-    # crypto_symbol = refresh_data(crypto_symbol, 'hour')
-    refresh_data(crypto_symbol, 'hour')
+    crypto_symbol = refresh_data(crypto_symbol, 'hour')
+    # refresh_data(crypto_symbol, 'hour')
     app = DjangoDash('CryptoGraph')
 
     app.layout = html.Div(style={'color': 'white', 'backgroundColor': colors['background'], 'margin-left': '0px',
@@ -110,7 +110,7 @@ def return_app(crypto_symbol=None):
         graphs.append(go.Scatter(
             x=x_data,
             y=y_data_scatter,
-            name='Manipulate Graph'
+            name="crypto_trace"
         ))
 
         graphs.append(go.Ohlc(
@@ -118,7 +118,8 @@ def return_app(crypto_symbol=None):
             open=y_data_box_open,
             high=y_data_box_high,
             low=y_data_box_low,
-            close=y_data_box_close
+            close=y_data_box_close,
+            name = "Higher-Low"
         ))
 
         layout = go.Layout(
