@@ -9,7 +9,7 @@ import time
 def adminArea(request):
     username = request.POST['username']
     user = User.objects.get(username=username)
-    if(user.is_superuser==true)
+    if(user.is_superuser==true):
 	    return render(request, 'adminArea.html', {})
     else:
         return render(request, 'AccessDenied.html',{})
