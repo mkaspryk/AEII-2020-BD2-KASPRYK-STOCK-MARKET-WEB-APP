@@ -10,11 +10,13 @@
                     {% include 'currencies/current_prices.html' %}
                     </div>
                 </div>
+                {% if user.is_authenticated %}
                 <div class="container-fluid p-0 mt-0">
                     <div class="row no-gutters">
                     {% include 'quick_purchase/quick_purchase_panel.html' %}
                     </div>
                 </div>
+                {% endif %}
             </div>
             <div class="col-sm-9" style="background-color: #1e2833;">
                 {% block content %}S
