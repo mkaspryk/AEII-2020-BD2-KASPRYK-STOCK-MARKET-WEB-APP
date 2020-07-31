@@ -2,14 +2,13 @@
 {% block content %}
 {% load plotly_dash %}
   <style>
-    {
-        box-sizing: border-box;
-    }
+    /* { */
+        /* box-sizing: border-box; */
+    /* } */
     /* Set additional styling options for the columns*/
     .column {
     float: left;
-    width: 50%;
-    padding: 20px;
+    
     }
 
     .row:after {
@@ -19,7 +18,7 @@
 
     }
     </style>
-    <div class="{% plotly_class name='CryptoGraph' %} card" style="background-color: white">
+    <div class="{% plotly_class name='CryptoGraph' %} card" style="background-color: #1e2833;">
       {% plotly_app name='CryptoGraph' ratio=1 %}
     </div>
 {% endblock %}
